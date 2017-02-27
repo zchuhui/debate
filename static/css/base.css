@@ -1,0 +1,58 @@
+@charset "UTF-8";
+body, ul, ol, dl, li, dd, h1, h2, h3, h4, h5, h6, p, input {
+  margin: 0; }
+
+h1, h2, h3, h4, h5, h6 {
+  font-size: 100%;
+  font-weight: normal;
+  font-family: "微软雅黑"; }
+
+img {
+  border: none; }
+
+input, button, textarea, select {
+  *font-size: 100%;
+  border: none;
+  resize: none;
+  outline: none; }
+
+body {
+  background: #fff;
+  color: #404040;
+  font: 14px/24px '新宋体', SimSun, Arial; }
+
+ul, ol {
+  list-style: none;
+  padding: 0; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+a:link, a:visited, a:active {
+  text-decoration: none;
+  color: #404040; }
+
+.fl {
+  float: left; }
+
+.fr {
+  float: right; }
+
+.clear {
+  zoom: 1; }
+
+.clear:after {
+  content: "";
+  display: block;
+  height: 0;
+  visibility: visible;
+  clear: both; }
+
+.blue {
+  color: #4f92fb; }
+
+.red {
+  color: #ff5043; }
+
+/*# sourceMappingURL=base.css.map */
