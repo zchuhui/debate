@@ -3,6 +3,8 @@ var koa = require('koa');
 var controller = require('koa-route');
 var app = koa(); 
 
+var service = require('./service/webService.js');
+
 //页面渲染格式
 var view = require('co-views');
 var render = view('./view',{
@@ -21,10 +23,17 @@ app.use(koa_static({
 app.use(controller.get('/',function*(){
 	this.body = yield render('index',{title:'辩否首页'});
 }));
-
+//
 app.use(controller.get('/subject',function*(){
 	this.body = yield render('subject',{title:'约辩'});
 }));
+
+
+app.use(controller.get('/data_index',function*(){
+	this.body = service.get_index_data();
+}));
+
+
 
 
 app.listen(3005);
