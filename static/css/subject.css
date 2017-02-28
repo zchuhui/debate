@@ -163,99 +163,65 @@ a:link, a:visited, a:active {
     width: 260px;
     margin-top: 25px; }
 
-.content-index .tags {
-  border-bottom: 1px solid #e6e6e6;
-  padding-bottom: 10px; }
-  .content-index .tags li {
-    float: left;
-    display: inline-block;
-    height: 24px;
-    border-radius: 20px;
-    line-height: 24px;
-    padding: 0 10px;
-    color: #999;
-    margin-right: 15px;
-    margin-bottom: 5px;
-    cursor: pointer; }
-  .content-index .tags .current {
-    background: #4f92fb;
-    color: #fff; }
-.content-index .topic-panel {
-  border-bottom: 1px solid #e6e6e6;
-  padding: 20px 0; }
-  .content-index .topic-panel h3 {
-    font-size: 16px;
+.content-subject {
+  width: 960px; }
+  .content-subject .sub-title {
     font-weight: bold;
-    line-height: 30px; }
-    .content-index .topic-panel h3 .number {
-      font-size: 13px;
-      font-weight: normal;
-      color: #999; }
-  .content-index .topic-panel .topic-content {
-    margin-top: 10px; }
-    .content-index .topic-panel .topic-content .head {
-      width: 38px;
-      height: 38px;
+    text-align: center;
+    margin: 25px auto; }
+  .content-subject .sub-title:after {
+    content: ' ';
+    display: block;
+    width: 70px;
+    height: 3px;
+    margin: 10px auto;
+    background: #e6e6e6; }
+  .content-subject .sub-item {
+    float: left;
+    width: 430px;
+    height: 115px;
+    padding: 20px;
+    background: #fff;
+    margin-bottom: 25px;
+    cursor: pointer; }
+    .content-subject .sub-item .s-title {
+      font-weight: bold;
+      font-size: 16px;
+      line-height: 30px; }
+    .content-subject .sub-item .s-time {
+      color: #999;
+      font-size: 12px; }
+    .content-subject .sub-item .u-head {
+      width: 48px;
+      height: 48px;
       overflow: hidden;
       border-radius: 50%; }
-      .content-index .topic-panel .topic-content .head img {
+      .content-subject .sub-item .u-head img {
         width: 100%;
         height: 100%; }
-    .content-index .topic-panel .topic-content .info {
-      margin-left: 50px; }
-    .content-index .topic-panel .topic-content .user-info {
-      height: 30px;
-      line-height: 26px; }
-      .content-index .topic-panel .topic-content .user-info .count {
-        display: inline-block;
-        width: 40px;
-        height: 18px;
-        line-height: 18px;
-        text-align: center;
-        background: #f2f2f2;
-        font-size: 12px; }
-    .content-index .topic-panel .topic-content .user-name {
-      color: #404040;
-      margin-right: 10px; }
-    .content-index .topic-panel .topic-content .user-summary {
-      color: #999; }
-    .content-index .topic-panel .topic-content .summary {
-      color: #999;
-      line-height: 20px; }
+    .content-subject .sub-item .progress-box {
+      display: block;
+      width: 300px;
+      margin-left: 20px; }
+    .content-subject .sub-item .progress {
+      position: relative;
+      margin-top: 10px;
+      height: 8px;
+      background: #efefef;
+      line-height: 40px; }
+      .content-subject .sub-item .progress .left, .content-subject .sub-item .progress .right {
+        display: block;
+        position: absolute;
+        top: 0;
+        width: 50%;
+        height: 8px; }
+      .content-subject .sub-item .progress .left {
+        left: 0;
+        background: #4f92fb; }
+      .content-subject .sub-item .progress .right {
+        right: 0;
+        background: #ff5043; }
+  .content-subject .sub-item:nth-child(2n) {
+    margin-left: 20px; }
 
-.recommend h2 {
-  display: block;
-  width: 60px;
-  height: 40px;
-  line-height: 40px;
-  border-bottom: 3px solid #e6e6e6;
-  font-weight: bold; }
-.recommend .rec-panel {
-  padding: 20px 0;
-  border-bottom: 1px solid #e6e6e6; }
-  .recommend .rec-panel .u-head {
-    width: 50px;
-    height: 50px;
-    overflow: hidden;
-    border-radius: 50%; }
-    .recommend .rec-panel .u-head img {
-      width: 100%;
-      height: 100%; }
-  .recommend .rec-panel .u-info {
-    margin-left: 60px; }
-  .recommend .rec-panel .u-name {
-    line-height: 26px; }
-  .recommend .rec-panel .u-summary {
-    color: #999;
-    line-height: 16px; }
-.recommend .contact-us {
-  margin-top: 50px;
-  font-size: 13px; }
-  .recommend .contact-us .label {
-    color: #999;
-    margin-left: 100px; }
-  .recommend .contact-us .info {
-    margin-top: 20px;
-    margin-left: 100px; }
-
-/*# sourceMappingURL=index.css.map */
+/*# sourceMappingURL=subject.css.map */

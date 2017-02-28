@@ -22,7 +22,9 @@ app.use(controller.get('/',function*(){
 	this.body = yield render('index',{title:'辩否首页'});
 }));
 
-
+app.use(controller.get('/subject',function*(){
+	this.body = yield render('subject',{title:'约辩'});
+}));
 
 
 app.listen(3005);

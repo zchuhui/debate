@@ -1,268 +1,141 @@
 @import 'base';
+@import 'layout';
 
-.header{
-	width:100%;
-	height:60px;
-	background:#000; 
+.content-index{
+	.tags{
+		border-bottom:1px solid #e6e6e6; 
+		padding-bottom:10px;
 
-
-	.h-content{
-		width:1000px;
-		height: 60px;
-		margin: 0 auto;
-
-		.logo{
-			display: block;
-			width:50px;
-			height: 30px;
-			background:url('/static/img/logo.png') no-repeat center; 
-			margin-top: 15px;
-			line-height: 99999;
-			overflow: hidden; 
-		}
-
-		.nav{
-			width:240px;
-
-			li{
-				float:left;
-			}
-
-			a{
-				display: block;
-				width:32px; 
-				height: 57px;
-				line-height: 60px;
-				color:#a6a6a6; 
-				border-bottom:3px solid #colorBlack;  
-				margin-left:40px; 
-				text-align: center;
-			}
-			.current{
-				color:$colorBlue;
-				border-bottom:3px solid $colorBlue;  
-			}
-		}
-	}
-	.search-box{
-		position:relative;
-		width:240px;
-		height: 30px;
-		margin-top: 15px; 
-		margin-left:10px; 
-
-		input[type="text"]{
-			width:100%;
-			height:30px;
-			line-height: 30px;
-			text-indent:15px; 
-			border:0;
+		li{
+			float:left;
+			display: inline-block;
+			height:24px;
 			border-radius:20px;
-			background:#262626; 
-			color:#fff;  
-		}
-		i{
-			position:absolute;
-			right:10px; 
-			top:8px;
-			display: block;
-			width:16px;
-			height: 16px;
-			background:url('/static/img/search.png') no-repeat center;   
-		}
-	}
-	.login-box{
-		width:260px;
-		height:60px;
-
-		.logo-wx{
-			display: block;
-			width:70px;
-			height: 32px;
-			line-height: 32px;
-			text-align:right;
-			margin-top: 15px; 
-			color:#a6a6a6;
-			background:url('/static/img/wx.png') no-repeat;  
-		}
-
-		.release-add{
-			display: block;
-			width:32px;
-			height: 32px;
-			margin-top:15px;
-			background:url('/static/img/release.png') no-repeat center;  
+			line-height: 24px;
+			padding:0 10px;
+			color:$colorGray;
+			margin-right:15px;  
+			margin-bottom:5px;
+			cursor:pointer;
+		} 
+		.current{
+			background:$colorBlue;
+			color:$colorWhite; 
 		}
 	}
 
-}
+	.topic-panel{
+		border-bottom:1px solid #e6e6e6;  
+		padding:20px 0; 
 
-.show-img{
-	width:100%;
-	height:180px;
-	background:url('/static/img/show-img.jpg');
-	background-size:cover;   
-}
+		h3{
+			font-size: 16px;
+			font-weight:bold; 
+			line-height: 30px;
 
-.content-wrap{
-	width:1000px;
-	margin:0 auto;
-	margin-bottom:50px;
-
-	.content{
-		width:650px;
-		margin-top: 25px;
-
-		.tags{
-			border-bottom:1px solid #e6e6e6; 
-			padding-bottom:10px;
-
-			li{
-				float:left;
-				display: inline-block;
-				height:24px;
-				border-radius:20px;
-				line-height: 24px;
-				padding:0 10px;
-				color:$colorGray;
-				margin-right:15px;  
-				margin-bottom:5px;
-				cursor:pointer;
-			} 
-			.current{
-				background:$colorBlue;
-				color:$colorWhite; 
+			.number{
+				font-size: 13px;
+				font-weight: normal;
+				color:$colorGray; 
 			}
 		}
 
-		.topic-panel{
-			border-bottom:1px solid #e6e6e6;  
-			padding:20px 0; 
+		.topic-content{
+		    margin-top: 10px;
 
-			h3{
-				font-size: 16px;
-				font-weight:bold; 
-				line-height: 30px;
+		    .head{
+				width:38px;
+				height: 38px;
+				overflow: hidden; 
+				border-radius:50%; 
 
-				.number{
-					font-size: 13px;
-					font-weight: normal;
-					color:$colorGray; 
-				}
-			}
-
-			.topic-content{
-			    margin-top: 10px;
-
-			    .head{
-					width:38px;
-					height: 38px;
-					overflow: hidden; 
-					border-radius:50%; 
-
-					img{width:100%; height:100%;}
-				}
-				.info{
-					margin-left:50px;
-				}
-				.user-info{
-					height: 30px;
-					line-height: 26px;
-
-					.count{
-						display: inline-block;
-						width:40px;
-						height:18px;
-						line-height: 18px;
-						text-align:center; 
-						background:#f2f2f2;  
-						font-size: 12px;
-					}
-				}
-				.user-name{
-					color:$colorBlack;
-					margin-right: 10px;
-				}
-				.user-summary{ 
-					color:$colorGray; 
-				}
-				.summary{
-					color:$colorGray;
-					line-height: 20px;
-				}
-			}
-
-			
-		}
-	}
-
-	.recommend{
-		width:260px;
-		margin-top: 25px;
-
-		h2{
-			display: block;
-			width:60px;
-			height: 40px;
-			line-height: 40px;
-			border-bottom:3px solid #e6e6e6; 
-			font-weight: bold;
-		}	
-
-		.rec-panel{
-			padding:20px 0;
-			border-bottom:1px solid #e6e6e6;
-
-			.u-head{
-				width: 50px;
-			    height: 50px;
-			    overflow: hidden;
-			    border-radius: 50%; 
-
-			    img{width:100%; height:100%;}
-
-			}
-
-			.u-info{
-				margin-left:60px;
-			}
-			.u-name{
-				line-height: 26px;
-			}
-			.u-summary{
-				color:$colorGray;
-				line-height: 16px;
-			}
-
-		}
-
-		.contact-us{
-			margin-top: 50px;
-			font-size: 13px;
-
-			.label{
-				color:$colorGray;
-				margin-left:100px;
+				img{width:100%; height:100%;}
 			}
 			.info{
-				margin-top: 20px;
-				margin-left:100px;
+				margin-left:50px;
 			}
-			img{
+			.user-info{
+				height: 30px;
+				line-height: 26px;
 
+				.count{
+					display: inline-block;
+					width:40px;
+					height:18px;
+					line-height: 18px;
+					text-align:center; 
+					background:#f2f2f2;  
+					font-size: 12px;
+				}
+			}
+			.user-name{
+				color:$colorBlack;
+				margin-right: 10px;
+			}
+			.user-summary{ 
+				color:$colorGray; 
+			}
+			.summary{
+				color:$colorGray;
+				line-height: 20px;
 			}
 		}
 	}
 }
 
-.footer{
-	width:100%;
-	height:120px;
-	background:$colorBlack;  
-	text-align:center;  
+.recommend{
+	h2{
+		display: block;
+		width:60px;
+		height: 40px;
+		line-height: 40px;
+		border-bottom:3px solid #e6e6e6; 
+		font-weight: bold;
+	}	
 
-	p{
-		color:#d9d9d9; 
-		padding-top:50px;
+	.rec-panel{
+		padding:20px 0;
+		border-bottom:1px solid #e6e6e6;
+
+		.u-head{
+			width: 50px;
+		    height: 50px;
+		    overflow: hidden;
+		    border-radius: 50%; 
+
+		    img{width:100%; height:100%;}
+
+		}
+
+		.u-info{
+			margin-left:60px;
+		}
+		.u-name{
+			line-height: 26px;
+		}
+		.u-summary{
+			color:$colorGray;
+			line-height: 16px;
+		}
+
+	}
+
+	.contact-us{
+		margin-top: 50px;
+		font-size: 13px;
+
+		.label{
+			color:$colorGray;
+			margin-left:100px;
+		}
+		.info{
+			margin-top: 20px;
+			margin-left:100px;
+		}
+		img{
+
+		}
 	}
 }
+
+
