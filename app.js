@@ -2,7 +2,8 @@
 var koa = require('koa');
 var controller = require('koa-route');
 var app = koa(); 
-
+// var $ = require('jquery');
+// window.$ = $;
 var service = require('./service/webService.js');
 
 //页面渲染格式
@@ -29,12 +30,11 @@ app.use(controller.get('/subject',function*(){
 }));
 
 
-app.use(controller.get('/data_index',function*(){
-	this.body = service.get_index_data();
-}));
+// app.use(controller.get('/data_index',function*(){
+// 	this.body = service.get_index_data_url();
+// 	console.log(service.get_index_data_url());
+// }));
 
-
-
-
+ 
 app.listen(3005);
 console.log("start 3005!!");

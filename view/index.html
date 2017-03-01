@@ -6,166 +6,59 @@
 	<title><%=title%></title>
 
 	<link rel="stylesheet" type="text/css" href="/static/css/index.css">
-
 </head>
 <body>
 	<div id="root">
 		<% include include/header.html %>
-
+		
 		<div class="show-img"><h2>发出声音，发现不同</h2><p>make a sound ,find different</p></div> 
 		
-		<div class="content-wrap clear">
+		<div class="content-wrap clear" >
 			<div class="content content-index fl">
-				 <ol class="tags clear">
+				 <ol class="tags clear" v-cloak>
 				 	<li class="current">热门</li>
-				 	<li>热门</li>
-				 	<li>热门</li>
-				 	<li>热门</li>
-				 	<li>热门</li>
-				 	<li>热门</li><li>热门</li>
-				 	<li>热门</li>
-				 	<li>热门</li>
-				 	<li>热门</li>
-				 	<li>热门</li><li>热门</li>
-				 	<li>热门</li>
-				 	<li>热门</li>
+				 	<li v-for="tag in tags">{{tag}}</li>
 				 </ol>
-				 <ul class="topic-list">
-				 	<li class="topic-panel">
-				 		<h3>三十个字的标题是多少三十个字的标题是多少三十个字的标题是多少 
-				 			<div class="fr number"><span class="blue">352</span>&nbsp;/&nbsp;<span class="red">5858</span></div> 
-				 		</h3>
-				 		<div class="topic-content clear">
-				 			<div class="head fl"><img src="/static/img/test/head.jpg"></div>
-				 			<div class="info">  
-				 				<div class="user-info clear">
-					 				<span class="user-name fl" >程浩</span><span class="user-summary fl">我是伯爵，我在城堡。</span>
-					 				<span class="fr count blue">5555</span>  
+				 <ul class="topic-list" >
+				 	<li class="topic-panel" v-for="item in items"  v-if="item.id <= show_count" v-cloak>
+				 		<a href="#">
+					 		<h3>
+					 			{{item.title}}
+					 			<div class="fr number">
+					 				<span class="blue">{{item.support_count}}</span>&nbsp;/&nbsp;<span class="red">{{item.opposition_count}}</span>
+					 			</div> 
+					 		</h3>
+					 		<div class="topic-content clear">
+					 			<div class="head fl"><img v-bind:src="item.cover"></div>
+					 			<div class="info">  
+					 				<div class="user-info clear">
+						 				<span class="user-name fl" >{{item.user_name}}</span>
+						 				<span class="user-summary fl">{{item.user_summay}}</span>
+						 				<span class="fr count blue">{{item.review_count}}</span>   
+						 			</div>
+						 			<div class="summary">
+						 				{{item.summay}} 
+						 			</div>
 					 			</div>
-					 			<div class="summary">
-					 				我二十一岁时，正在云南插队。陈清扬当时二十六岁，就在我插队的地方当医生。我在山下十四队，她在山上十五队。有一天她从山上下来，和我讨论她不是破鞋的问题。那时我还不大认识她，只能说有一点知道。她要讨论的事是这祥的：虽然所有的人都说她是一个破鞋，但她以为自己不是的。因为破鞋.
-					 			</div>
-				 			</div>
-				 		</div>
-				 	</li>
-				 	<li class="topic-panel">
-				 		<h3>三十个字的标题是多少三十个字的标题是多少三十个字的标题是多少 
-				 			<div class="fr number"><span class="blue">352</span>&nbsp;/&nbsp;<span class="red">5858</span></div> 
-				 		</h3>
-				 		<div class="topic-content clear">
-				 			<div class="head fl"><img src="/static/img/test/head.jpg"></div>
-				 			<div class="info">  
-				 				<div class="user-info clear">
-					 				<span class="user-name fl" >程浩</span><span class="user-summary fl">我是伯爵，我在城堡。</span>
-					 				<span class="fr count blue">5555</span>  
-					 			</div>
-					 			<div class="summary">
-					 				我二十一岁时，正在云南插队。陈清扬当时二十六岁，就在我插队的地方当医生。我在山下十四队，她在山上十五队。有一天她从山上下来，和我讨论她不是破鞋的问题。那时我还不大认识她，只能说有一点知道。她要讨论的事是这祥的：虽然所有的人都说她是一个破鞋，但她以为自己不是的。因为破鞋.
-					 			</div>
-				 			</div>
-				 		</div>
-				 	</li>
-				 	<li class="topic-panel">
-				 		<h3>三十个字的标题是多少三十个字的标题是多少三十个字的标题是多少 
-				 			<div class="fr number"><span class="blue">352</span>&nbsp;/&nbsp;<span class="red">5858</span></div> 
-				 		</h3>
-				 		<div class="topic-content clear">
-				 			<div class="head fl"><img src="/static/img/test/head.jpg"></div>
-				 			<div class="info">  
-				 				<div class="user-info clear">
-					 				<span class="user-name fl" >程浩</span><span class="user-summary fl">我是伯爵，我在城堡。</span>
-					 				<span class="fr count blue">5555</span>  
-					 			</div>
-					 			<div class="summary">
-					 				我二十一岁时，正在云南插队。陈清扬当时二十六岁，就在我插队的地方当医生。我在山下十四队，她在山上十五队。有一天她从山上下来，和我讨论她不是破鞋的问题。那时我还不大认识她，只能说有一点知道。她要讨论的事是这祥的：虽然所有的人都说她是一个破鞋，但她以为自己不是的。因为破鞋.
-					 			</div>
-				 			</div>
-				 		</div>
-				 	</li>
-				 	<li class="topic-panel">
-				 		<h3>三十个字的标题是多少三十个字的标题是多少三十个字的标题是多少 
-				 			<div class="fr number"><span class="blue">352</span>&nbsp;/&nbsp;<span class="red">5858</span></div> 
-				 		</h3>
-				 		<div class="topic-content clear">
-				 			<div class="head fl"><img src="/static/img/test/head.jpg"></div>
-				 			<div class="info">  
-				 				<div class="user-info clear">
-					 				<span class="user-name fl" >程浩</span><span class="user-summary fl">我是伯爵，我在城堡。</span>
-					 				<span class="fr count blue">5555</span>  
-					 			</div>
-					 			<div class="summary">
-					 				我二十一岁时，正在云南插队。陈清扬当时二十六岁，就在我插队的地方当医生。我在山下十四队，她在山上十五队。有一天她从山上下来，和我讨论她不是破鞋的问题。那时我还不大认识她，只能说有一点知道。她要讨论的事是这祥的：虽然所有的人都说她是一个破鞋，但她以为自己不是的。因为破鞋.
-					 			</div>
-				 			</div>
-				 		</div>
-				 	</li>
-				 	<li class="topic-panel">
-				 		<h3>三十个字的标题是多少三十个字的标题是多少三十个字的标题是多少 
-				 			<div class="fr number"><span class="blue">352</span>&nbsp;/&nbsp;<span class="red">5858</span></div> 
-				 		</h3>
-				 		<div class="topic-content clear">
-				 			<div class="head fl"><img src="/static/img/test/head.jpg"></div>
-				 			<div class="info">  
-				 				<div class="user-info clear">
-					 				<span class="user-name fl" >程浩</span><span class="user-summary fl">我是伯爵，我在城堡。</span>
-					 				<span class="fr count blue">5555</span>  
-					 			</div>
-					 			<div class="summary">
-					 				我二十一岁时，正在云南插队。陈清扬当时二十六岁，就在我插队的地方当医生。我在山下十四队，她在山上十五队。有一天她从山上下来，和我讨论她不是破鞋的问题。那时我还不大认识她，只能说有一点知道。她要讨论的事是这祥的：虽然所有的人都说她是一个破鞋，但她以为自己不是的。因为破鞋.
-					 			</div>
-				 			</div>
-				 		</div>
-				 	</li>
-				 	<li class="topic-panel">
-				 		<h3>三十个字的标题是多少三十个字的标题是多少三十个字的标题是多少 
-				 			<div class="fr number"><span class="blue">352</span>&nbsp;/&nbsp;<span class="red">5858</span></div> 
-				 		</h3>
-				 		<div class="topic-content clear">
-				 			<div class="head fl"><img src="/static/img/test/head.jpg"></div>
-				 			<div class="info">  
-				 				<div class="user-info clear">
-					 				<span class="user-name fl" >程浩</span><span class="user-summary fl">我是伯爵，我在城堡。</span>
-					 				<span class="fr count blue">5555</span>  
-					 			</div>
-					 			<div class="summary">
-					 				我二十一岁时，正在云南插队。陈清扬当时二十六岁，就在我插队的地方当医生。我在山下十四队，她在山上十五队。有一天她从山上下来，和我讨论她不是破鞋的问题。那时我还不大认识她，只能说有一点知道。她要讨论的事是这祥的：虽然所有的人都说她是一个破鞋，但她以为自己不是的。因为破鞋.
-					 			</div>
-				 			</div>
-				 		</div>
-				 	</li>
+					 		</div>
+					 	</a>
+				 	</li> 
 				 </ul>
+				 
+				 <div class="loading" v-if="loading"><img src="/static/img/loading.gif"></div>
 			</div>
 			
 			<div class="recommend fr"> 
 				<h2>推荐辩手</h2>
 				<ul>
-					<li class="rec-panel">
-						<div class="u-head fl"><img src="/static/img/test/head.jpg"></div>
-						<div class="u-info">
-							<div class="u-name">伯爵在城堡</div>
-							<div class="u-summary">我是伯爵在城堡，我喜欢阅读，也喜欢写作。。。</div>
-						</div>
-					</li>
-					<li class="rec-panel">
-						<div class="u-head fl"><img src="/static/img/test/head.jpg"></div>
-						<div class="u-info">
-							<div class="u-name">伯爵在城堡</div>
-							<div class="u-summary">我是伯爵在城堡，我喜欢阅读，也喜欢写作。。。</div>
-						</div>
-					</li>
-					<li class="rec-panel">
-						<div class="u-head fl"><img src="/static/img/test/head.jpg"></div>
-						<div class="u-info">
-							<div class="u-name">伯爵在城堡</div>
-							<div class="u-summary">我是伯爵在城堡，我喜欢阅读，也喜欢写作。。。</div>
-						</div>
-					</li>
-					<li class="rec-panel">
-						<div class="u-head fl"><img src="/static/img/test/head.jpg"></div>
-						<div class="u-info">
-							<div class="u-name">伯爵在城堡</div>
-							<div class="u-summary">我是伯爵在城堡，我喜欢阅读，也喜欢写作。。。</div>
-						</div>
+					<li class="rec-panel" v-for="item in recommend_items"  v-cloak>
+						<a href="#">
+							<div class="u-head fl"><img v-bind:src="item.cover"></div>
+							<div class="u-info"> 
+								<div class="u-name">{{item.user_name}}</div> 
+								<div class="u-summary">{{item.user_summary}}</div> 
+							</div>
+						</a>
 					</li>
 				</ul>
 				<div class="contact-us">
@@ -177,10 +70,12 @@
 		</div>
 
 		<% include include/footer.html %>
-
+		
 		<script src="https://cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
-		<script src="/static/script/mock.js"></script> 
-		<script src="/static/script/index.js"></script> 
+		<script src="https://cdn.bootcss.com/vue/2.2.1/vue.min.js"></script> 
+		<script src="/static/script/mock.js"></script>
+		<script src="/static/script/common.js"></script>
+		<script src="/static/script/pages/index.js"></script> 
 	</div>
 </body>
 </html> 

@@ -35,6 +35,18 @@
 		.s-time{
 			color:$colorGray; 
 			font-size: 12px;
+
+			span{
+				display: inline-block;
+				height: 30px;
+				line-height: 30px;
+			}
+		}
+		.s-count{
+			margin-left: 20px;
+			text-indent: 25px;
+			background:url('/static/img/people.png') no-repeat;
+			background-position:0 4px;
 		}
 
 		.u-head{ 

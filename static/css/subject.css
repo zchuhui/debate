@@ -33,6 +33,9 @@ a:link, a:visited, a:active {
   text-decoration: none;
   color: #404040; }
 
+[v-cloak] {
+  display: none; }
+
 .fl {
   float: left; }
 
@@ -154,6 +157,7 @@ a:link, a:visited, a:active {
 
 .content-wrap {
   width: 1000px;
+  min-height: 700px;
   margin: 0 auto;
   margin-bottom: 50px; }
   .content-wrap .content {
@@ -162,6 +166,13 @@ a:link, a:visited, a:active {
   .content-wrap .recommend {
     width: 260px;
     margin-top: 25px; }
+  .content-wrap .loading {
+    width: 100%;
+    text-align: center; }
+    .content-wrap .loading img {
+      width: 60px;
+      height: 60px;
+      margin: 20px auto; }
 
 .content-subject {
   width: 960px; }
@@ -191,6 +202,15 @@ a:link, a:visited, a:active {
     .content-subject .sub-item .s-time {
       color: #999;
       font-size: 12px; }
+      .content-subject .sub-item .s-time span {
+        display: inline-block;
+        height: 30px;
+        line-height: 30px; }
+    .content-subject .sub-item .s-count {
+      margin-left: 20px;
+      text-indent: 25px;
+      background: url("/static/img/people.png") no-repeat;
+      background-position: 0 4px; }
     .content-subject .sub-item .u-head {
       width: 48px;
       height: 48px;

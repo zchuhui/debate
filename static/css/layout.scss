@@ -129,6 +129,7 @@
 
 .content-wrap{
 	width:1000px;
+	min-height:700px;
 	margin:0 auto;
 	margin-bottom:50px;
 
@@ -140,5 +141,14 @@
 	.recommend{
 		width:260px;
 		margin-top: 25px;
+	}
+
+	.loading{
+		width:100%;
+		text-align: center;
+
+		img{
+			margin:20px auto;
+		}
 	}
 }

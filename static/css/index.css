@@ -33,6 +33,9 @@ a:link, a:visited, a:active {
   text-decoration: none;
   color: #404040; }
 
+[v-cloak] {
+  display: none; }
+
 .fl {
   float: left; }
 
@@ -154,6 +157,7 @@ a:link, a:visited, a:active {
 
 .content-wrap {
   width: 1000px;
+  min-height: 700px;
   margin: 0 auto;
   margin-bottom: 50px; }
   .content-wrap .content {
@@ -162,6 +166,11 @@ a:link, a:visited, a:active {
   .content-wrap .recommend {
     width: 260px;
     margin-top: 25px; }
+  .content-wrap .loading {
+    width: 100%;
+    text-align: center; }
+    .content-wrap .loading img {
+      margin: 20px auto; }
 
 .content-index .tags {
   border-bottom: 1px solid #e6e6e6;

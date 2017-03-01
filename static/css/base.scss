@@ -9,6 +9,8 @@ ul, ol { list-style: none; padding: 0 }
 table { border-collapse: collapse; border-spacing: 0 }
 a:link,a:visited,a:active{text-decoration:none;color:#404040;} 
 
+[v-cloak]{display:none;}
+
 .fl { float: left }
 .fr { float: right }
 .clear { zoom: 1 }
