@@ -15,9 +15,9 @@
 		
 		<div class="content-wrap clear" >
 			<div class="content content-index fl">
-				 <ol class="tags clear" v-cloak>
-				 	<li class="current">热门</li>
-				 	<li v-for="tag in tags">{{tag}}</li>
+				 <ol class="tags clear" id="tags" v-cloak>
+				 	<li class="current">全部</li> 
+				 	<li v-for="tag in tags" @click="toggleTags()">{{tag}}</li>
 				 </ol>
 				 <ul class="topic-list" >
 				 	<li class="topic-panel" v-for="item in items"  v-if="item.id <= show_count" v-cloak>

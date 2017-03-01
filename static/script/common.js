@@ -46,6 +46,28 @@ var mockData = (function(){
 		return url;
 	}; 
 
+	//首页标签切换请求
+	var index_tag_url = function(){
+		var url = "www.mock.com/index_tag";
+		Mock.mock(url,{
+			'id|1-10000':1,
+			'result':0,
+			'authors'	:'@name', 
+			'items|1-30':[{ 
+				'id|+1':1, 
+				'title|1-5':'外星人存在吗？',
+				'user_name|1-3':'外星人',
+				'user_summay|1-3':'我不是外星人',
+				'support_count|0-10000':1, 
+				'opposition_count|0-10000':1,
+				'review_count|0-10000':1,
+				'summay|1-5':'二十一岁时，正在云南插队。陈清扬当时二十六岁，就在我插队的地方当医生。我在山下十四队，她在山上十五队。' ,
+				'cover':'/static/img/test/head.jpg'
+			}]
+		});
+		return url; 
+	}; 
+
 	//约辩数据
 	var subject_url = function(){
 		var url = "www.mock.com/subject";
@@ -64,7 +86,7 @@ var mockData = (function(){
 				'opposition_count|0-10000':1,
 				'datetime':'@datetime',
 				'count|0-10000':0,
-			}],
+			}]
 		});
 		return url;
 	}; 
@@ -72,7 +94,7 @@ var mockData = (function(){
 	return {
 		index_url:index_url,
 		subject_url:subject_url,
-
+		index_tag_url:index_tag_url
 	}
 
 })();

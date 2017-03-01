@@ -13,7 +13,9 @@ var getIndexData = function(){
 	var index_url = mockData.index_url();
 
 	$.get(index_url,function(d){
+
 		d = JSON.parse(d);
+
 		var subjectVue = new Vue({
 			el:'#root',
 			data:{
@@ -30,38 +32,46 @@ var getIndexData = function(){
 			created:function(){ //数据渲染后的操作
 				//隐藏滚动条
 				this.loading = 0;
-
 				//选中导航栏当前的子项（约辩）
-				$("#head_nav li:eq("+this.nav_current+") a").addClass('current')
-				
+				$("#head_nav li:eq("+this.nav_current+") a").addClass('current');
+
 			},
 			updated:function(){
-				//scrollBottom(this.test); 
 			},
 			watch:{
-				loading:function(){  
-					console.log("test:"+this.loading); 
-				}
 			},
 			methods:{
 
-				scrollBottom: function(){
+				//滚动条拉到底部时追加载入数据
+				scrollBottom: function(){ 
 					if (this.show_count < this.items.length) {
 						this.loading = 1; 
 					 	this.show_count = this.show_count + 10; 
+
 					 	setTimeout(function(){this.loading = 0;}, 1000);
 					}
 					else{ 
 						this.loading = 0; 
 						//alert("所有数据加载完毕！"); 
 					}
+				}, 
+				//标签切换
+				toggleTags:function(){ 
+					getIndexDataInTag.then(function(d){
+						console.log(d); 
+					});
+
+					
 
 				}
+
 			}
 		});
 
 
-		//subjectVue.scrollBottom();
+		//subjectVue.toggleTags(); 
+
+		//滚动条操作
 		$(window).scroll(function(){
 		　　var scrollTop = $(this).scrollTop();
 		　　var scrollHeight = $(document).height();
@@ -72,4 +82,14 @@ var getIndexData = function(){
 		});
 
 	});
-}
+}; 
+
+ 
+var getIndexDataInTag = new Promise(function(resolve, reject){
+	var index_tag_url = mockData.index_tag_url();
+	$.get(index_tag_url,function(d){  
+		d = JSON.parse(d); 
+		resolve(d);
+		//return dd; 
+	});
+});
