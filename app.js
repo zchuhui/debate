@@ -17,7 +17,7 @@ var koa_static = require("koa-static-server");
 app.use(koa_static({
 	rootDir:'./static',  //所在目录
 	rootPath:'/static',  //访问地址
-	maxage:0,            //缓存
+	maxage:600000,       //缓存 
 }));
 
 //首页路由
