@@ -37,6 +37,12 @@ var getIndexData = function(){
 
 			},
 			updated:function(){
+				getIndexDataInTag.then(function(d){
+					console.log(subjectVue.items);  
+					
+				},function(error){
+					//console.log(error);
+				});
 			},
 			watch:{
 			},
@@ -58,10 +64,11 @@ var getIndexData = function(){
 				//标签切换
 				toggleTags:function(){ 
 					getIndexDataInTag.then(function(d){
-						console.log(d); 
+						console.log(subjectVue.items);  
+						
+					},function(error){
+						//console.log(error);
 					});
-
-					
 
 				}
 
@@ -81,15 +88,20 @@ var getIndexData = function(){
 		　　}
 		});
 
+
+
 	});
 }; 
 
- 
+
 var getIndexDataInTag = new Promise(function(resolve, reject){
 	var index_tag_url = mockData.index_tag_url();
 	$.get(index_tag_url,function(d){  
 		d = JSON.parse(d); 
-		resolve(d);
-		//return dd; 
+		if (d.result == 0) {
+			resolve(d);
+		}else{
+			reject("获取数据报错！");
+		}
 	});
 });

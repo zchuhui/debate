@@ -170,9 +170,16 @@ a:link, a:visited, a:active {
     width: 100%;
     text-align: center; }
     .content-wrap .loading img {
-      width: 60px;
-      height: 60px;
       margin: 20px auto; }
+
+.dialog-wrap {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-left: -290px;
+  width: 590px;
+  padding: 25px;
+  background: #fff; }
 
 .content-subject {
   width: 960px; }
