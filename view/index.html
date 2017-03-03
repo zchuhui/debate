@@ -17,8 +17,8 @@
 			<div class="content content-index fl">
 				 <ol class="tags clear" id="tags" v-cloak>
 				 	<li class="current">全部</li> 
-				 	<li v-for="tag in tags" @click="toggleTags()">{{tag}}</li>
-				 </ol>
+				 	<li v-for="tag in tags" v-on:click="toggleTags()">{{tag}}</li> 
+				 </ol>  
 				 <ul class="topic-list" >
 				 	<li class="topic-panel" v-for="item in items"  v-if="item.id <= show_count" v-cloak>
 				 		<a href="#">
@@ -30,11 +30,11 @@
 					 		</h3>
 					 		<div class="topic-content clear">
 					 			<div class="head fl"><img v-bind:src="item.cover"></div>
-					 			<div class="info">  
+					 			<div class="info">
 					 				<div class="user-info clear">
 						 				<span class="user-name fl" >{{item.user_name}}</span>
 						 				<span class="user-summary fl">{{item.user_summay}}</span>
-						 				<span class="fr count blue">{{item.review_count}}</span>   
+						 				<span class="fr count blue">{{item.review_count}}</span>
 						 			</div>
 						 			<div class="summary">
 						 				{{item.summay}} 

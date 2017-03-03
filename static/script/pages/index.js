@@ -15,39 +15,33 @@ var getIndexData = function(){
 	$.get(index_url,function(d){
 
 		d = JSON.parse(d);
+		var dataItems = d.items;
 
 		var subjectVue = new Vue({
 			el:'#root',
 			data:{
 				tags:d.tags,
-				items:d.items,
+				items:dataItems,
 				recommend_items:d.recommend_items,
 				nav_current:d.nav_current,
 				loading:1,
 				show_count:10,
+				test:0,
+			},
+			computed:{
+				tg:function(){console.log("computed");
+					return this.items;    
+				}
 			},
 			beforeCreate:function(){ //数据渲染前的操作
-				
 			},
 			created:function(){ //数据渲染后的操作
 				//隐藏滚动条
 				this.loading = 0;
 				//选中导航栏当前的子项（约辩）
 				$("#head_nav li:eq("+this.nav_current+") a").addClass('current');
-
-			},
-			updated:function(){
-				getIndexDataInTag.then(function(d){
-					console.log(subjectVue.items);  
-					
-				},function(error){
-					//console.log(error);
-				});
-			},
-			watch:{
 			},
 			methods:{
-
 				//滚动条拉到底部时追加载入数据
 				scrollBottom: function(){ 
 					if (this.show_count < this.items.length) {
@@ -61,14 +55,17 @@ var getIndexData = function(){
 						//alert("所有数据加载完毕！"); 
 					}
 				}, 
+
 				//标签切换
-				toggleTags:function(){ 
+				toggleTags:function(j){   
 					getIndexDataInTag.then(function(d){
-						console.log(subjectVue.items);  
+						subjectVue.items = d.items;   
 						
 					},function(error){
 						//console.log(error);
 					});
+					
+					
 
 				}
 
@@ -76,7 +73,8 @@ var getIndexData = function(){
 		});
 
 
-		//subjectVue.toggleTags(); 
+		// subjectVue.tg;
+		// console.log(subjectVue.items);
 
 		//滚动条操作
 		$(window).scroll(function(){
@@ -84,22 +82,22 @@ var getIndexData = function(){
 		　　var scrollHeight = $(document).height();
 		　　var windowHeight = $(this).height();
 		　　if(scrollTop + windowHeight == scrollHeight){
-		　　　　subjectVue.scrollBottom();  
+		　　　　subjectVue.scrollBottom();
 		　　}
 		});
-
-
 
 	});
 }; 
 
 
+
+//根据标签请求数据
 var getIndexDataInTag = new Promise(function(resolve, reject){
 	var index_tag_url = mockData.index_tag_url();
 	$.get(index_tag_url,function(d){  
 		d = JSON.parse(d); 
 		if (d.result == 0) {
-			resolve(d);
+			resolve(d); 
 		}else{
 			reject("获取数据报错！");
 		}
