@@ -52,7 +52,7 @@ var getIndexData = function(){
 					}
 					else{ 
 						this.loading = 0; 
-						//alert("所有数据加载完毕！"); 
+						//alert("所有数据加载完毕！");
 					}
 				}, 
 
@@ -65,10 +65,7 @@ var getIndexData = function(){
 						//console.log(error);
 					});
 					
-					
-
 				}
-
 			}
 		});
 

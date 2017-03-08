@@ -4,7 +4,7 @@ $(function(){
 });
 
 
-//计算内容区域的最小高度，防止内容少时造成页面抖动或底部上移
+/*计算内容区域的最小高度，防止内容少时造成页面抖动或底部上移*/
 var winLoading = function(){
 	
 	var win_height =  document.body.scrollHeight;  
@@ -13,8 +13,21 @@ var winLoading = function(){
 	
 }
 
+/*发布问题*/
+var releaseQuestion = function(){
+	$("body").css("overflow","hidden");
+	$("#dialog_bg").fadeIn(100);  
+	$("#dialog_wrap").slideDown();  
+} 
 
-//引用Mockjs进行数据模拟
+/*关闭发布问题*/
+var closeQuestion = function(){
+	$("body").css("overflow","auto");
+	$("#dialog_bg").fadeOut(500); 
+	$("#dialog_wrap").slideUp();  
+}
+
+/*引用Mockjs进行数据模拟*/
 var mockData = (function(){
 
 	//首页数据

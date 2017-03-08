@@ -173,13 +173,56 @@ a:link, a:visited, a:active {
       margin: 20px auto; }
 
 .dialog-wrap {
-  position: absolute;
+  position: fixed;
   left: 50%;
   top: 50%;
-  margin-left: -290px;
   width: 590px;
   padding: 25px;
-  background: #fff; }
+  background: #fff;
+  z-index: 1001;
+  transform: translate(-50%, -50%); }
+  .dialog-wrap input[type="text"], .dialog-wrap textarea {
+    background: #f2f2f2;
+    margin: 0; }
+  .dialog-wrap input[type="text"] {
+    width: 590px;
+    height: 40px;
+    line-height: 40px;
+    margin-bottom: 15px;
+    text-indent: 10px; }
+  .dialog-wrap textarea {
+    width: 570px;
+    padding: 10px;
+    height: 40px;
+    line-height: 24px;
+    margin-bottom: 10px; }
+  .dialog-wrap textarea.area-summary {
+    height: 100px; }
+  .dialog-wrap .blue-btn {
+    display: block;
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    background: #4f92fb;
+    border: 0;
+    border-radius: 20px;
+    text-align: center;
+    color: #fff; }
+  .dialog-wrap h3.dialog-title {
+    display: block;
+    height: 40px; }
+    .dialog-wrap h3.dialog-title .close-btn:hover {
+      color: #4f92fb; }
+
+.dialog-bg {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: #000;
+  opacity: 0.5;
+  z-index: 1000; }
 
 .content-subject {
   width: 960px; }
