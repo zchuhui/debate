@@ -4,7 +4,7 @@ h1, h2, h3, h4, h5, h6 { font-size: 100%; font-weight: normal; font-family: "微
 img { border: none }
 input, button, textarea, select {
 *font-size: 100%; border: none; resize:none; outline:none; }
-body { background: #fff; color: #404040; font: 14px/24px '新宋体', SimSun, Arial; } 
+body { background: #fff; color: #404040; font: 13px/24px '新宋体', SimSun, Arial; } 
 ul, ol { list-style: none; padding: 0 }
 table { border-collapse: collapse; border-spacing: 0 }
 a:link,a:visited,a:active{text-decoration:none;color:#404040;} 
@@ -20,12 +20,17 @@ $colorWhite:#fff;
 $colorBlue:#4f92fb; 
 $colorRed:#ff5043;
 $colorGray:#999;
+$colorGrayLight:#a6a6a6;
 $colorBlack:#404040;
 
 .blue{color:$colorBlue;}
-.red{color:$colorRed;}
+.red{color:$colorRed;} 
+.gray{color:$colorGray;}
+.graylight{color:$colorGrayLight;}
 
+.f16{font-size:16px;}
 
-
+.mt20{margin-top:20px;}
+.mt10{margin-top:10px;}
 
 

@@ -18,4 +18,3 @@ exports.get_index_data_url = function(){
 		return url;  
 }
 
-

@@ -239,74 +239,166 @@ a:link, a:visited, a:active {
   opacity: 0.5;
   z-index: 1000; }
 
-.content-subject {
-  width: 960px; }
-  .content-subject .sub-title {
-    font-weight: bold;
-    text-align: center;
-    margin: 25px auto; }
-  .content-subject .sub-title:after {
-    content: ' ';
-    display: block;
-    width: 70px;
-    height: 3px;
-    margin: 10px auto;
-    background: #e6e6e6; }
-  .content-subject .sub-item {
-    float: left;
-    width: 430px;
-    height: 115px;
-    padding: 20px;
-    background: #fff;
-    margin-bottom: 25px;
-    cursor: pointer; }
-    .content-subject .sub-item .s-title {
-      font-weight: bold;
-      font-size: 16px;
-      line-height: 30px; }
-    .content-subject .sub-item .s-time {
-      color: #999;
-      font-size: 12px; }
-      .content-subject .sub-item .s-time span {
-        display: inline-block;
-        height: 30px;
-        line-height: 30px; }
-    .content-subject .sub-item .s-count {
-      margin-left: 20px;
-      text-indent: 25px;
-      background: url("/static/img/people.png") no-repeat;
-      background-position: 0 4px; }
-    .content-subject .sub-item .u-head {
-      width: 48px;
-      height: 48px;
-      overflow: hidden;
-      border-radius: 50%; }
-      .content-subject .sub-item .u-head img {
-        width: 100%;
-        height: 100%; }
-    .content-subject .sub-item .progress-box {
-      display: block;
-      width: 300px;
-      margin-left: 20px; }
-    .content-subject .sub-item .progress {
-      position: relative;
-      margin-top: 10px;
-      height: 8px;
-      background: #efefef;
-      line-height: 40px; }
-      .content-subject .sub-item .progress .left, .content-subject .sub-item .progress .right {
-        display: block;
-        position: absolute;
-        top: 0;
-        width: 50%;
-        height: 8px; }
-      .content-subject .sub-item .progress .left {
-        left: 0;
-        background: #4f92fb; }
-      .content-subject .sub-item .progress .right {
-        right: 0;
-        background: #ff5043; }
-  .content-subject .sub-item:nth-child(2n) {
-    margin-left: 20px; }
+.w-p-20 {
+  width: 20%; }
 
-/*# sourceMappingURL=subject.css.map */
+.w-p-60 {
+  width: 60%; }
+
+.tc {
+  text-align: center; }
+
+.tl {
+  text-align: left; }
+
+.tr {
+  text-align: right; }
+
+.btn, .btn-blue, .btn-red {
+  display: inline-block;
+  width: 90px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  color: #fff !important;
+  border-radius: 30px; }
+
+.btn-blue {
+  background: #4f92fb; }
+
+.btn-red {
+  background: #ff5043; }
+
+.content-detail .topic-title {
+  padding: 15px 0;
+  border-bottom: 1px solid #e6e6e6; }
+  .content-detail .topic-title h2 {
+    font-size: 18px;
+    font-weight: bold; }
+  .content-detail .topic-title .t-summary {
+    margin: 10px 0;
+    line-height: 20px;
+    color: #999; }
+.content-detail .progress-box .progress {
+  width: 100%;
+  height: 8px;
+  background: #eee; }
+.content-detail .progress-box .pro-right {
+  width: 50%;
+  height: 8px;
+  background: #4f92fb; }
+.content-detail .progress-box .pro-left {
+  width: 50%;
+  height: 8px;
+  background: #ff5043; }
+.content-detail .share-wx {
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+  margin-bottom: -7px;
+  background: url("/static/img/wx-2.png") no-repeat center;
+  background-size: 100%; }
+.content-detail .topic-debate {
+  margin-top: 20px; }
+  .content-detail .topic-debate .debate-summary {
+    margin-top: 5px;
+    line-height: 20px; }
+.content-detail .support {
+  margin-left: -60px; }
+  .content-detail .support .head {
+    width: 38px;
+    height: 38px;
+    overflow: hidden;
+    border-radius: 50%; }
+    .content-detail .support .head img {
+      width: 100%;
+      height: 100%; }
+  .content-detail .support .support-txt {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    margin-top: 10px;
+    background: #f2f2f2;
+    color: #4f92fb;
+    text-align: center;
+    line-height: 26px;
+    cursor: pointer; }
+  .content-detail .support .suport-icon {
+    position: absolute;
+    left: 12px;
+    bottom: 3px;
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    background: url("/static/img/approve.png") no-repeat center; }
+.content-detail .support-r {
+  margin: 0;
+  margin-right: -60px; }
+  .content-detail .support-r .support-txt {
+    color: #ff5043; }
+.content-detail .debate-info {
+  padding-bottom: 5px;
+  border-bottom: 1px solid #e6e6e6; }
+.content-detail .revert-list li {
+  padding: 10px 0;
+  border-bottom: 1px solid #e6e6e6; }
+.content-detail .revert-list .head {
+  width: 30px;
+  height: 30px;
+  overflow: hidden;
+  border-radius: 50%; }
+  .content-detail .revert-list .head img {
+    width: 100%;
+    height: 100%; }
+.content-detail .revert-list .revert-info {
+  margin-left: 40px; }
+
+.flex-text-wrap {
+  position: relative;
+  *zoom: 1; }
+
+textarea,
+.flex-text-wrap {
+  outline: 0;
+  margin: 0;
+  border: none;
+  padding: 0;
+  *padding-bottom: 0 !important; }
+
+.flex-text-wrap textarea,
+.flex-text-wrap pre {
+  white-space: pre-wrap;
+  width: 100%;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  *white-space: pre;
+  *word-wrap: break-word; }
+
+.flex-text-wrap textarea {
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  resize: none;
+  border: 1px solid #eee;
+  padding: 15px;
+  background: #f2f2f2;
+  /* IE7 box-sizing fudge factor */
+  *height: 94%;
+  *width: 94%; }
+
+.flex-text-wrap pre {
+  display: block;
+  visibility: hidden; }
+
+textarea,
+.flex-text-wrap pre {
+  /*
+   * Add custom styling here
+   * Ensure that typography, padding, border-width (and optionally min-height) are identical across textarea & pre
+   */ }
+
+/*# sourceMappingURL=detail.css.map */

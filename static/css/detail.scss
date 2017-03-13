@@ -1,4 +1,224 @@
 @import 'base';
 @import 'layout';
 
+$colorWhite:#fff;
+$colorBlue:#4f92fb; 
+$colorRed:#ff5043;
+$colorGray:#999;
+$colorGrayLight:#a6a6a6;
+$colorBlack:#404040;
 
+.w-p-20{width:20%;}
+.w-p-60{width:60%;}
+.tc{text-align:center;}
+.tl{text-align:left;}
+.tr{text-align:right;}
+
+
+.btn{
+	display:inline-block;
+	width:90px;
+	height:30px;
+	line-height:30px;
+	text-align:center;
+	color:$colorWhite !important;
+	border-radius:30px; 
+}
+.btn-blue{
+	@extend .btn;
+	background:$colorBlue;
+}
+.btn-red{
+	@extend .btn;
+	background:$colorRed;
+}
+
+.content-detail{
+	.topic-title{
+		padding:15px 0;
+		border-bottom:1px solid #e6e6e6; 
+
+		h2{
+			font-size: 18px;
+			font-weight: bold;
+		}
+
+		.t-summary{
+			margin:10px 0; 
+			line-height: 20px;
+			color: $colorGray; 
+		}
+	}
+	
+	.viewpoint{}
+	.progress-box{
+		.progress{
+			width:100%;
+			height: 8px;
+			background:#eee;
+		}
+		.pro-right{
+			width:50%;
+			height: 8px;
+			background:$colorBlue;
+		}
+		.pro-left{
+			width:50%;
+			height: 8px; 
+			background:$colorRed;
+		}
+	}
+
+	.share-wx{
+		display: inline-block;
+		width:25px;
+		height:25px;
+		margin-bottom: -7px;
+		background:url('/static/img/wx-2.png') no-repeat center; 
+		background-size:100%;
+	}
+	
+	.topic-debate{
+		margin-top: 20px;
+
+		.debate-summary{
+			margin-top: 5px;
+			line-height: 20px;
+		}
+	}
+
+	.support{
+		margin-left:-60px;
+
+		.head{
+			width: 38px;
+		    height: 38px;
+		    overflow: hidden;
+		    border-radius: 50%;
+
+		    img{
+		    	width: 100%;
+    			height: 100%;
+		    }
+		}
+		.support-txt{
+			position: relative;
+			width:40px;
+			height:40px;
+			margin-top: 10px;
+			background:#f2f2f2;
+			color:$colorBlue;
+			text-align: center;
+			line-height: 26px;
+			cursor: pointer;
+		}
+		.suport-icon{
+			position:absolute;
+			left:12px;
+			bottom:3px;
+			display: inline-block;
+			width:15px;
+			height:15px;  
+			background:url('/static/img/approve.png') no-repeat center;  
+		}
+	}
+
+	.support-r{
+		margin:0;
+		margin-right: -60px;
+
+		.support-txt{
+			color:$colorRed;
+		}
+	}
+
+	.debate-info{
+		padding-bottom:5px;
+		border-bottom:1px solid #e6e6e6; 
+	}
+
+	.revert-list{
+
+		li{
+			padding:10px 0;
+			border-bottom:1px solid #e6e6e6;
+		}
+		
+		.head{
+			width: 30px;
+		    height: 30px;
+		    overflow: hidden;
+		    border-radius: 50%;
+
+		    img{
+		    	width: 100%;
+    			height: 100%;
+		    }
+		}
+
+		.revert-info{
+			margin-left:40px;
+		}
+	}
+}
+
+
+
+
+
+
+.flex-text-wrap {
+    position: relative;
+    *zoom: 1;
+}
+
+textarea,
+.flex-text-wrap {
+    outline: 0;
+    margin: 0;
+    border: none;
+    padding: 0;
+
+    *padding-bottom: 0 !important;
+}
+
+.flex-text-wrap textarea,
+.flex-text-wrap pre {
+    white-space: pre-wrap;
+    width: 100%;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+
+    *white-space: pre;
+    *word-wrap: break-word;
+}
+
+.flex-text-wrap textarea {
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    resize: none;
+	border:1px solid #eee; 
+	padding:15px;
+	background:#f2f2f2;
+    /* IE7 box-sizing fudge factor */
+    *height: 94%;
+    *width: 94%;
+}
+
+.flex-text-wrap pre {
+    display: block;
+    visibility: hidden;
+}
+
+textarea,
+.flex-text-wrap pre {
+    /*
+     * Add custom styling here
+     * Ensure that typography, padding, border-width (and optionally min-height) are identical across textarea & pre
+     */
+}

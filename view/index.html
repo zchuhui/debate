@@ -21,7 +21,7 @@
 				 </ol>  
 				 <ul class="topic-list" >
 				 	<li class="topic-panel" v-for="item in items"  v-if="item.id <= show_count" v-cloak>
-				 		<a href="#">
+				 		<a href="/detail">
 					 		<h3> 
 					 			{{item.title}}
 					 			<div class="fr number">
@@ -45,7 +45,7 @@
 				 	</li> 
 				 </ul>
 				 
-				 <div class="loading" v-if="loading"><img src="/static/img/loading.gif"></div>
+				 <!-- <div class="loading" v-if="loading"><img src="/static/img/loading.gif"></div> -->
 			</div>
 			
 			<div class="recommend fr"> 

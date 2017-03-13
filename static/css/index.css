@@ -19,7 +19,7 @@ input, button, textarea, select {
 body {
   background: #fff;
   color: #404040;
-  font: 14px/24px '新宋体', SimSun, Arial; }
+  font: 13px/24px '新宋体', SimSun, Arial; }
 
 ul, ol {
   list-style: none;
@@ -57,6 +57,21 @@ a:link, a:visited, a:active {
 
 .red {
   color: #ff5043; }
+
+.gray {
+  color: #999; }
+
+.graylight {
+  color: #a6a6a6; }
+
+.f16 {
+  font-size: 16px; }
+
+.mt20 {
+  margin-top: 20px; }
+
+.mt10 {
+  margin-top: 10px; }
 
 .header {
   width: 100%;
