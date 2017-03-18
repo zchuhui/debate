@@ -8,7 +8,7 @@ $(function(){
 var winLoading = function(){
 	
 	var win_height =  document.body.scrollHeight;  
-	var con_height = win_height - (60+180+120);
+	var con_height = win_height - (60+180+120); 
 	$('.content-wrap').css('min-height',con_height);
 	
 }
@@ -104,6 +104,7 @@ var mockData = (function(){
 		return url;
 	}; 
 
+	//详情
 	var detail_url = function(){
 		var url = "www.mock.com/detail/45454";
 		Mock.mock(url,{
@@ -117,7 +118,7 @@ var mockData = (function(){
 			'oppose_count|10-9999':888,
 			'release_time':'2015.01.04',
 			'review_count|1-9999':111,
-			'reviews|10-10':[{
+			'reviews|1-10':[{
 				'u_id|+1':0,
 				'u_cover':'/static/img/test/head.jpg',
 				'u_name|1-3':'伯爵怪才',
@@ -128,7 +129,7 @@ var mockData = (function(){
 				'u_time':'2015.1.2   15:00',
 				'u_edit_f':false,
 				'u_edit_content':'',
-				'talks|3-10':[{
+				'talks|1-5':[{
 					'uu_id|+1':0,
 					'uu_name|1-3':'鸣人',
 					'uu_cover':'/static/img/test/head2.jpg',
@@ -138,19 +139,46 @@ var mockData = (function(){
 					'uu_edit_f':false,
 					'uu_edit_content':'',
 				}]
-			}]
+			}],
+			'hots|10-15':[{
+				'title|1-3':'热门对论标题。',
+				'count|1-1000':10
+			}],
 		});
 
 		return url;
 	}
 
-
+	//辩手数据
+	var debater_url = function(){
+		var url = "www.mock.com/debater";
+		Mock.mock(url,{
+			'id|1-10000':1,
+			'nav_current':2,
+			'items|6-15':[{ 
+				'id|+1':1, 
+				'user_name|1-3':'伯爵',
+				'user_summary|5-10':'伯爵是个人',
+				'cover':'/static/img/test/head.jpg',
+				'debate_count|10-1000':0,
+				'support_count|10-1000':0,
+			}], 
+			'recommend_items|5-15':[{ 
+				'user_id|+1':1,
+				'user_name|1-3':'乞丐',
+				'user_summary|1-3':'我是一个非常低调的人。',
+				'cover':'/static/img/test/head2.jpg'
+			}],
+		});
+		return url;
+	}; 
 
 	return {
 		index_url:index_url,
 		subject_url:subject_url,
 		index_tag_url:index_tag_url,
 		detail_url:detail_url,
+		debater_url:debater_url,
 	}
 
 })();

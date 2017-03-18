@@ -239,132 +239,46 @@ a:link, a:visited, a:active {
   opacity: 0.5;
   z-index: 1000; }
 
-.w-p-20 {
-  width: 20%; }
-
-.w-p-60 {
-  width: 60%; }
-
-.tc {
-  text-align: center; }
-
-.tl {
-  text-align: left; }
-
-.tr {
-  text-align: right; }
-
-.pd10 {
-  padding: 10px 0; }
-
-.btn, .btn-blue, .btn-red, .btn-black {
+.btn-blue-bd {
   display: inline-block;
   width: 90px;
   height: 30px;
   line-height: 30px;
   text-align: center;
   color: #fff !important;
-  border-radius: 30px; }
-
-.btn-blue {
+  border-radius: 30px;
   background: #4f92fb; }
 
-.btn-red {
-  background: #ff5043; }
-
-.btn-black {
-  background: #404040; }
-
-.btn-cancel {
-  display: inline-block;
-  height: 30px;
-  padding: 0 10px;
-  color: #a6a6a6 !important;
-  line-height: 30px; }
-
-.content-detail .topic-title {
-  padding: 15px 0;
+.content-debater h2 {
+  display: block;
+  width: 60px;
+  height: 40px;
+  line-height: 40px;
+  border-bottom: 3px solid #e6e6e6;
+  font-weight: bold; }
+.content-debater li {
+  padding: 20px 0;
   border-bottom: 1px solid #e6e6e6; }
-  .content-detail .topic-title h2 {
-    font-size: 18px;
-    font-weight: bold; }
-  .content-detail .topic-title .t-summary {
-    margin: 10px 0;
-    line-height: 20px;
-    color: #999; }
-.content-detail .progress-box .progress {
-  width: 100%;
-  height: 8px;
-  background: #eee; }
-.content-detail .progress-box .pro-right {
-  width: 50%;
-  height: 8px;
-  background: #4f92fb; }
-.content-detail .progress-box .pro-left {
-  width: 50%;
-  height: 8px;
-  background: #ff5043; }
-.content-detail .share-wx {
-  display: inline-block;
-  width: 25px;
-  height: 25px;
-  margin-bottom: -7px;
-  background: url("/static/img/wx-2.png") no-repeat center;
-  background-size: 100%; }
-.content-detail .topic-debate {
-  margin-top: 20px; }
-  .content-detail .topic-debate .debate-summary {
-    margin-top: 5px;
-    line-height: 20px; }
-.content-detail .support {
-  margin-left: -60px; }
-  .content-detail .support .head {
-    width: 38px;
-    height: 38px;
+  .content-debater li .u-head {
+    width: 67px;
+    height: 67px;
     overflow: hidden;
     border-radius: 50%; }
-    .content-detail .support .head img {
+    .content-debater li .u-head img {
       width: 100%;
       height: 100%; }
-  .content-detail .support .support-txt {
-    position: relative;
-    width: 40px;
-    height: 40px;
-    margin-top: 10px;
-    background: #f2f2f2;
-    color: #4f92fb;
-    text-align: center;
-    line-height: 26px;
-    cursor: pointer; }
-  .content-detail .support .suport-icon {
-    position: absolute;
-    left: 12px;
-    bottom: 3px;
+  .content-debater li .u-info {
     display: inline-block;
-    width: 15px;
-    height: 15px;
-    background: url("/static/img/approve.png") no-repeat center; }
-.content-detail .support-r {
-  margin: 0;
-  margin-right: -60px; }
-  .content-detail .support-r .support-txt {
-    color: #ff5043; }
-.content-detail .debate-info {
-  padding-bottom: 5px;
-  border-bottom: 1px solid #e6e6e6; }
-.content-detail .revert-list li {
-  padding: 10px 0;
-  border-bottom: 1px solid #e6e6e6; }
-.content-detail .revert-list .head {
-  width: 30px;
-  height: 30px;
-  overflow: hidden;
-  border-radius: 50%; }
-  .content-detail .revert-list .head img {
-    width: 100%;
-    height: 100%; }
-.content-detail .revert-list .revert-info {
-  margin-left: 40px; }
+    width: 70%;
+    margin-left: 30px; }
+  .content-debater li .u-name {
+    line-height: 26px; }
+  .content-debater li .u-summary {
+    color: #999;
+    line-height: 16px;
+    font-size: 13px; }
+  .content-debater li .btn-blue-bd {
+    margin-top: 15px; }
 
 .recommend h2 {
   display: block;
@@ -373,56 +287,32 @@ a:link, a:visited, a:active {
   line-height: 40px;
   border-bottom: 3px solid #e6e6e6;
   font-weight: bold; }
-.recommend li {
-  padding: 15px 0;
+.recommend .rec-panel {
+  padding: 20px 0;
   border-bottom: 1px solid #e6e6e6; }
+  .recommend .rec-panel .u-head {
+    width: 50px;
+    height: 50px;
+    overflow: hidden;
+    border-radius: 50%; }
+    .recommend .rec-panel .u-head img {
+      width: 100%;
+      height: 100%; }
+  .recommend .rec-panel .u-info {
+    margin-left: 60px; }
+  .recommend .rec-panel .u-name {
+    line-height: 26px; }
+  .recommend .rec-panel .u-summary {
+    color: #999;
+    line-height: 16px; }
+.recommend .contact-us {
+  margin-top: 50px;
+  font-size: 13px; }
+  .recommend .contact-us .label {
+    color: #999;
+    margin-left: 100px; }
+  .recommend .contact-us .info {
+    margin-top: 20px;
+    margin-left: 100px; }
 
-.flex-text-wrap {
-  position: relative;
-  *zoom: 1; }
-
-textarea,
-.flex-text-wrap {
-  outline: 0;
-  margin: 0;
-  border: none;
-  padding: 0;
-  *padding-bottom: 0 !important; }
-
-.flex-text-wrap textarea,
-.flex-text-wrap pre {
-  white-space: pre-wrap;
-  width: 100%;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  *white-space: pre;
-  *word-wrap: break-word; }
-
-.flex-text-wrap textarea {
-  overflow: hidden;
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  resize: none;
-  border: 1px solid #eee;
-  padding: 15px;
-  background: #f2f2f2;
-  /* IE7 box-sizing fudge factor */
-  *height: 94%;
-  *width: 94%; }
-
-.flex-text-wrap pre {
-  display: block;
-  visibility: hidden; }
-
-textarea,
-.flex-text-wrap pre {
-  /*
-   * Add custom styling here
-   * Ensure that typography, padding, border-width (and optionally min-height) are identical across textarea & pre
-   */ }
-
-/*# sourceMappingURL=detail.css.map */
+/*# sourceMappingURL=debater.css.map */

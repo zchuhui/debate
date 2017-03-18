@@ -33,6 +33,9 @@ app.use(controller.get('/subject',function*(){
 app.use(controller.get('/detail',function*(){
 	this.body = yield render('detail',{title:'详情'});
 }));
+app.use(controller.get('/debater',function*(){
+	this.body = yield render('debater',{title:'辩手'});
+}));
 
 
 // app.use(controller.get('/data_index',function*(){

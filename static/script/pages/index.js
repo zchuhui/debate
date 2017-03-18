@@ -29,7 +29,7 @@ var getIndexData = function(){
 				test:0,
 			},
 			computed:{
-				tg:function(){console.log("computed");
+				tg:function(){
 					return this.items;    
 				}
 			},

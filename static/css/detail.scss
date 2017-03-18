@@ -173,7 +173,21 @@ $colorBlack:#404040;
 	}
 }
 
+.recommend{
+	h2{
+		display: block;
+		width:60px;
+		height: 40px;
+		line-height: 40px;
+		border-bottom:3px solid #e6e6e6; 
+		font-weight: bold;
+	}
 
+	li{
+		padding: 15px 0;
+    	border-bottom: 1px solid #e6e6e6;
+	}
+}
 
 
 

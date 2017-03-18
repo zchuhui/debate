@@ -36,7 +36,8 @@ var getDetailData = function(){
 				review_count:d.review_count,
 				reviews:d.reviews,
 				you_support:d.you_support,
-
+				hots:d.hots,
+				loading:true,
 			},
 			methods:{
 				isRevert:function(id){
@@ -54,7 +55,11 @@ var getDetailData = function(){
 				cancelItem:function(id,item_id){
 					this.reviews[id].talks[item_id].uu_edit_f = !this.reviews[id].talks[item_id].uu_edit_f;
 				}
+			},
+			created:function(){
+				this.loading = false;
 			}
+
 		})
 	});
 

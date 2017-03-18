@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<title><%=title%></title>
+
+	<link rel="stylesheet" type="text/css" href="/static/css/debater.css">
+</head>
+<body>
+	<div id="root">
+		<% include include/header.html %>
+		
+		<div class="show-img"><h2>发出声音，发现不同</h2><p>make a sound ,find different</p></div> 
+		
+		<div class="content-wrap clear" id="debater">
+			<div class="content content-debater fl">
+				<h2>推荐辩手</h2>
+				<ul>
+					<li class="clear" v-cloak v-for="item in items">
+						<div class="u-head fl"><img v-bind:src="item.cover"></div>
+						<div class="u-info fl"> 
+							<div class="u-name">{{item.user_name}}</div> 
+							<div class="u-summary">{{item.user_summary}}</div> 
+							<div>{{item.debate_count}}次辩论 &nbsp; {{item.support_count}}赞</div>
+						</div>
+						<a class="btn-blue-bd fr" href="javascript:;">向Ta提问</a>
+					</li> 
+				</ul>
+				<div class="loading" v-if="loading"><img src="/static/img/loading.gif"></div>
+			</div>
+			
+			<div class="recommend fr"> 
+				<h2>推荐辩手</h2>
+				<ul>
+					<li class="rec-panel" v-for="item in recommend_items"  v-cloak>
+						<a href="#">
+							<div class="u-head fl"><img v-bind:src="item.cover"></div>
+							<div class="u-info"> 
+								<div class="u-name">{{item.user_name}}</div> 
+								<div class="u-summary">{{item.user_summary}}</div> 
+							</div>
+						</a>
+					</li>
+				</ul>
+				<div class="contact-us">
+					<img class="fl" src="/static/img/2code.jpg">
+					<div class="label">联系我们:</div>
+					<div class="info">辩否官方QQ群：216560849 <br> 或关注辩否微信公众号</div>
+				</div>
+			</div>
+		</div>
+
+		<% include include/footer.html %>
+		
+		<script src="https://cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+		<script src="https://cdn.bootcss.com/vue/2.2.1/vue.min.js"></script> 
+		<script src="/static/script/mock.js"></script>
+		<script src="/static/script/common.js"></script>
+		<script src="/static/script/pages/debater.js"></script> 
+	</div>
+</body>
+</html> 

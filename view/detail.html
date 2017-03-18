@@ -12,10 +12,10 @@
 	<div id="root"> 
 		<% include include/header.html %>
 		
-		<div class="content-wrap clear" id="detail">
-			<div class="content content-detail fl">
+		<div class="content-wrap clear" id="detail"  style="min-height: 900px;">
+			<div class="content content-detail fl" >
 
-				<div class="topic-title">
+				<div class="topic-title" v-cloak>
 				 	<h2>{{ title }}</h2>
 				 	<div class="t-summary">{{ summary }}</div>
 				 	<div class="viewpoint clear">
@@ -45,7 +45,7 @@
 				</div>
 
 				<!-- 评论区 -->
-				<div class="topic-debate" v-for="item in reviews">
+				<div class="topic-debate" v-for="item in reviews" v-cloak>
 
 				 	<!-- 支持正方 -->
 				 	<div class="support fl" v-if="item.u_support === true">
@@ -165,7 +165,7 @@
 
 				</div> -->
 
-				<div class="topic-debate">
+				<div class="topic-debate" v-cloak>
 				  	<div>
 				  		
 				  	</div>
@@ -173,17 +173,18 @@
 						<p>请输入你的评论</p>
 					</textarea> 
 				</div>
-				 
-				 <!-- <div class="loading" v-if="loading"><img src="/static/img/loading.gif"></div> -->
+				
+				<div class="loading" v-if="loading"><img src="/static/img/loading.gif"></div>
 			</div>
 			
-			<div class="recommend fr"> 
+
+			<div class="recommend fr"  v-cloak> 
 				<h2>热门对论</h2>
 				<ul>
-					<li class="rec-panel"  v-cloak>
-						<a href="#">
-							<h5></h5>
-							<span>22255 &nbsp; 人参与</span>
+					<li class="rec-panel" v-for='h in hots' >
+						<a href="/detail">
+							<p><b>{{h.title}}</b></p>
+							<span class="graylight">{{h.count}} 人参与</span>
 						</a>
 					</li>
 				</ul>
