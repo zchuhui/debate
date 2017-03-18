@@ -104,10 +104,53 @@ var mockData = (function(){
 		return url;
 	}; 
 
+	var detail_url = function(){
+		var url = "www.mock.com/detail/45454";
+		Mock.mock(url,{
+			'id|1000-9999':1212,
+			'title|1':'我认为地铁是方的，你说对吗？',
+			'summary|3-6':'如果你妈跟你老婆一起掉进河里，你先救谁？？ ',
+			'you_support':true,
+			'support_title|1':'我支持先救老妈',
+			'support_count|10-9999':222,
+			'oppose_title|1':'我支持先救老妈',
+			'oppose_count|10-9999':888,
+			'release_time':'2015.01.04',
+			'review_count|1-9999':111,
+			'reviews|10-10':[{
+				'u_id|+1':0,
+				'u_cover':'/static/img/test/head.jpg',
+				'u_name|1-3':'伯爵怪才',
+				'u_support|1-2':true, 
+				'u_support_count|5-555':333,
+				'u_is_support':true,
+				'u_summary|5-10':'我觉得啊，必须支持老婆啊！',
+				'u_time':'2015.1.2   15:00',
+				'u_edit_f':false,
+				'u_edit_content':'',
+				'talks|3-10':[{
+					'uu_id|+1':0,
+					'uu_name|1-3':'鸣人',
+					'uu_cover':'/static/img/test/head2.jpg',
+					'uu_summay|1-5':'我保持中立，别来了好吗？',
+					'uu_support_count|2-100':1212,
+					'uu_time':'2015.1.2   15:00',
+					'uu_edit_f':false,
+					'uu_edit_content':'',
+				}]
+			}]
+		});
+
+		return url;
+	}
+
+
+
 	return {
 		index_url:index_url,
 		subject_url:subject_url,
-		index_tag_url:index_tag_url
+		index_tag_url:index_tag_url,
+		detail_url:detail_url,
 	}
 
 })();

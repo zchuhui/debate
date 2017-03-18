@@ -13,7 +13,7 @@ $colorBlack:#404040;
 .tc{text-align:center;}
 .tl{text-align:left;}
 .tr{text-align:right;}
-
+.pd10{padding:10px 0;}
 
 .btn{
 	display:inline-block;
@@ -31,6 +31,17 @@ $colorBlack:#404040;
 .btn-red{
 	@extend .btn;
 	background:$colorRed;
+}
+.btn-black{
+	@extend .btn;
+	background:$colorBlack;
+}
+.btn-cancel{
+	display:inline-block;
+	height:30px;
+	padding:0 10px;
+	color:$colorGrayLight !important;  
+	line-height:30px;
 }
 
 .content-detail{

@@ -62,7 +62,7 @@ a:link, a:visited, a:active {
   color: #999; }
 
 .graylight {
-  color: #a6a6a6; }
+  color: #a6a6a6 !important; }
 
 .f16 {
   font-size: 16px; }
@@ -254,7 +254,10 @@ a:link, a:visited, a:active {
 .tr {
   text-align: right; }
 
-.btn, .btn-blue, .btn-red {
+.pd10 {
+  padding: 10px 0; }
+
+.btn, .btn-blue, .btn-red, .btn-black {
   display: inline-block;
   width: 90px;
   height: 30px;
@@ -268,6 +271,16 @@ a:link, a:visited, a:active {
 
 .btn-red {
   background: #ff5043; }
+
+.btn-black {
+  background: #404040; }
+
+.btn-cancel {
+  display: inline-block;
+  height: 30px;
+  padding: 0 10px;
+  color: #a6a6a6 !important;
+  line-height: 30px; }
 
 .content-detail .topic-title {
   padding: 15px 0;

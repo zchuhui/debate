@@ -6,79 +6,105 @@
 	<title><%=title%></title>
 
 	<link rel="stylesheet" type="text/css" href="/static/css/detail.css">  
+	<link rel="stylesheet" type="text/css" href="/static/script/plugin/wangEditor.css">
 </head>
 <body>
 	<div id="root"> 
 		<% include include/header.html %>
 		
-		<div class="content-wrap clear">
+		<div class="content-wrap clear" id="detail">
 			<div class="content content-detail fl">
-				 <div class="topic-title">
-				 	<h2>这是一个很大的辩题，你猜猜是什么？？</h2>
-				 	<div class="t-summary">如果你妈跟你老婆一起掉进河里，你先救谁？？
-				 	如果你妈跟你老婆一起掉进河里，你先救谁？如果你妈跟你老婆一起掉进河里，你先救谁？？
-				 	如果你妈跟你老婆一起掉进河里，你先救谁？？</div>
+
+				<div class="topic-title">
+				 	<h2>{{ title }}</h2>
+				 	<div class="t-summary">{{ summary }}</div>
 				 	<div class="viewpoint clear">
 				 		<div class="fl w-p-20 tl"><a class="btn-blue" href="javascript:;">支持正方</a>
 				 		<p class="gray">&nbsp;&nbsp;已支持</p></div>
 				 		<div class="fr w-p-20 tr"><a class="btn-red" href="javascript:;">支持反方</a></div>
 				 		<div class="progress-box w-p-60 fl">
 				 			<div class="clear">
-				 				<span class="fl">正：先救老婆</span>
-				 				<span class="fr">正：先救老妈</span>
+				 				<span class="fl">正：{{ support_title }}</span>
+				 				<span class="fr">反方：{{ oppose_title }}</span>
 				 			</div>
 				 			<div class="progress clear"> 
 				 				<div class="pro-right fl"></div>
 				 				<div class="pro-left fl"></div>
 				 			</div>
 				 			<div class="clear f16">
-				 				<span class="fl blue">25525 人</span>
-				 				<span class="fr red">88888 人</span>
+				 				<span class="fl blue">{{ support_count }} 人</span>
+				 				<span class="fr red">{{ oppose_count }} 人</span>
 				 			</div>
 				 		</div>
 				 	</div>
 					<div class="graylight mt20">
-						发布于<span>2015.2.2</span>&nbsp;
-						共 <span class="gray">5555</span>个论述 &nbsp;
+						发布于<span>{{ release_time }}</span>&nbsp;
+						共 <span class="gray">{{ review_count }} </span> 个论述 &nbsp;
 						分享于: <em class="share-wx"></em>  
 					</div>
-				 </div> 
+				</div>
 
-				 <div class="topic-debate">
-				 	<div class="support fl">
-				 		<div class="head"><img src="/static/img/test/head.jpg"></div>
+				<!-- 评论区 -->
+				<div class="topic-debate" v-for="item in reviews">
+
+				 	<!-- 支持正方 -->
+				 	<div class="support fl" v-if="item.u_support === true">
+				 		<div class="head"><img v-bind:src="item.u_cover"></div>
 				 		<div class="support-txt">
-				 			<p>555</p>
+				 			<p>{{ item.u_support_count }}</p>
 				 			<em class="suport-icon"></em>
 				 		</div>
 				 	</div>
+
+				 	<!-- 支持反方 -->
+				 	<div class="support support-r fr" v-else> 
+				 		<div class="head"><img v-bind:src="item.u_cover"></div>
+				 		<div class="support-txt">
+				 			<p>{{ item.u_support_count }}</p>
+				 			<em class="suport-icon"></em>
+				 		</div>
+				 	</div> 
+
 				 	<div class="debate-info">
-				 		<div class="user-info"><b>陈浩粉丝</b> <span class="graylight">支持正方，先救老婆</span></div>
+				 		<div class="user-info"><b>{{item.u_name}}</b> <span class="graylight">支持正方，先救老婆</span></div>
 						<div class="debate-summary"> 
-							我觉得啊，必须先就老婆啊，因为我妈会游泳。
-							我觉得啊，必须先就老婆啊，因为我妈会游泳。
-							我觉得啊，必须先就老婆啊，因为我妈会游泳。
-							我觉得啊，必须先就老婆啊，因为我妈会游泳。
-							我觉得啊，必须先就老婆啊，因为我妈会游泳。
+							{{item.u_summary}}
 						</div>
 						<div class="graylight mt10"> 
-							<span>2015.12.12 &nbsp;&nbsp; 15:00</span> 
-							<a class="fr graylight" href="javascript:;">回复</a> 
+							<span>{{item.u_time}}</span> 
+							<a class="fr graylight" href="javascript:;" v-on:click="isRevert(item.u_id)">回复</a> 
+							<div class="flex-text-wrap revert-input" v-if="item.u_edit_f">
+								<pre><span></span></pre> 
+								<textarea class=" revert_input" placeholder="回复 会飞的鱼儿" v-model="item.u_edit_content">{{item.u_edit_content}}</textarea> 
+								<div class="clear pd10">
+									<a class="btn-black fr" href="javascript:;" v-on:click="revert()">回  复</a>
+									<a class="btn-cancel fr" class="fr" href="javascript:;" v-on:click="cancel(item.u_id)" >取消</a>
+								</div>
+							</div>
 						</div>
 				 	</div>
+
 					<ul class="revert-list">
-						<li class="clear revert-item">
-							<div class="head fl"><img src="/static/img/test/head.jpg"></div>
+						<li class="clear revert-item" v-for="tk in item.talks">
+							<div class="head fl"><img v-bind:src="tk.uu_cover"></div>
 							<div class="revert-info">
-								<div class="graylight">会飞的鱼儿  回复  <span class="fr">34 赞</span></div>
-								<div>我觉得啊，必须先就老婆啊，因为我妈会游泳。</div>
+								<div class="graylight">{{tk.uu_name}}  回复  <span class="fr">{{tk.uu_support_count}} 赞</span></div>
+								<div>{{tk.uu_summay}}</div>
 								<div>
-									<span class="graylight">2016.2.2 13:00</span>
-									<a class="fr graylight" href="javascript:;">回复</a> 
+									<span class="graylight">{{tk.uu_time}}</span>
+									<a class="fr graylight" href="javascript:;"  v-on:click="isRevertItem(item.u_id,tk.uu_id)">回复</a> 
+									<div class="flex-text-wrap revert-input" v-if="tk.uu_edit_f">
+										<pre><span></span></pre> 
+										<textarea class=" revert_input" v-bind:placeholder="item.u_name" v-model="tk.uu_edit_content">{{tk.uu_edit_content}}</textarea> 
+										<div class="clear pd10">
+											<a class="btn-black fr" href="javascript:;" v-on:click="revert()">回  复</a>
+											<a class="btn-cancel fr" class="fr" href="javascript:;" v-on:click="cancelItem(item.u_id,tk.uu_id)" >取消</a>
+										</div>
+									</div>
 								</div>
 							</div>
 						</li>
-						<li class="clear revert-item">
+						<!-- <li class="clear revert-item">
 							<div class="head fl"><img src="/static/img/test/head2.jpg"></div>
 							<div class="revert-info">
 								<div class="graylight">会飞的鱼儿  回复  <span class="fr">34 赞</span></div>
@@ -92,11 +118,12 @@
 									</div>
 								</div>
 							</div>
-						</li>
-					</ul>
-				 </div>
+						</li> -->
 
-				 <div class="topic-debate">
+					</ul>
+				</div>
+
+				<!-- <div class="topic-debate">
 				 	<div class="support support-r fr">
 				 		<div class="head"><img src="/static/img/test/head.jpg"></div>
 				 		<div class="support-txt">
@@ -122,21 +149,41 @@
 							</div>
 						</div>
 				 	</div>
-				 </div>
+				 	<ul class="revert-list">
+				 		<li class="clear revert-item">
+							<div class="head fl"><img src="/static/img/test/head.jpg"></div>
+							<div class="revert-info">
+								<div class="graylight">会飞的鱼儿  回复  <span class="fr">34 赞</span></div>
+								<div>我觉得啊，必须先就老婆啊，因为我妈会游泳。</div>
+								<div>
+									<span class="graylight">2016.2.2 13:00</span>
+									<a class="fr graylight" href="javascript:;">回复</a> 
+								</div>
+							</div>
+						</li>
+				 	</ul>
+
+				</div> -->
+
+				<div class="topic-debate">
+				  	<div>
+				  		
+				  	</div>
+				  	<textarea id='textarea1' style='height:200px; width:100%;'>
+						<p>请输入你的评论</p>
+					</textarea> 
+				</div>
 				 
 				 <!-- <div class="loading" v-if="loading"><img src="/static/img/loading.gif"></div> -->
 			</div>
 			
 			<div class="recommend fr"> 
-				<h2>推荐辩手</h2>
+				<h2>热门对论</h2>
 				<ul>
-					<li class="rec-panel" v-for="item in recommend_items"  v-cloak>
+					<li class="rec-panel"  v-cloak>
 						<a href="#">
-							<div class="u-head fl"><img v-bind:src="item.cover"></div>
-							<div class="u-info"> 
-								<div class="u-name">{{item.user_name}}</div> 
-								<div class="u-summary">{{item.user_summary}}</div> 
-							</div>
+							<h5></h5>
+							<span>22255 &nbsp; 人参与</span>
 						</a>
 					</li>
 				</ul>
@@ -151,11 +198,13 @@
 		<% include include/footer.html %>
 		
 		<script src="https://cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
-		<script src="https://cdn.bootcss.com/vue/2.2.1/vue.min.js"></script> 
+		<script src="https://cdn.bootcss.com/vue/2.2.1/vue.min.js"></script>  
 		<script src="/static/script/mock.js"></script>
 		<script src="/static/script/common.js"></script>
-		<script src="/static/script/jquery.flexText.js"></script>  
+		<script src="/static/script/plugin/jquery.flexText.js"></script>  
+		<script src="/static/script/plugin/wangEditor.min.js"></script>  
 		<script src="/static/script/pages/detail.js"></script> 
+
 	</div>
 </body>
 </html> 
