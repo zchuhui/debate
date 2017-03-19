@@ -10,14 +10,36 @@
 			<li><a href="/subject">约辩</a></li>
 			<li><a href="/debater">辩手</a></li>
 		</ul>
-		<div class="login-box fr"> 
-			<a class="logo-wx fl" href="javascript:;">登录</a>
+		<!-- 未登录 -->
+		<div class="login-box fr" id="login_no" style="display: none;"> 
+			<a class="logo-wx fl" href="javascript:;" onclick="login()">登录</a>
+			<a class="release-add fr" href="javascript:;" onclick="releaseQuestion()"></a>
+			<div class="wx-login">
+				<img class="fl" src="/static/img/2code.jpg">
+				<p>扫 一 扫 <br>微信登录</p>
+			</div>
+		</div>
+
+		<!-- 已登录 -->
+		<div class="login-box fr" id="login_yes"> 
+			<a class="clear fl user-box" id="user_edit" href="javascript:;" onclick="userEdit()">	
+				<div class="u-head fl"><img src="/static/img/test/head.jpg"></div>
+				<span>伯爵在城堡</span> 
+
+				<ul style="display: none;">
+					<li onclick="editUserInfo()">编辑资料</li>
+					<li onclick="logout()">退  出</li>
+				</ul>
+			</a>
 			<a class="release-add fr" href="javascript:;" onclick="releaseQuestion()"></a>
 		</div>
+
 	</div>
 </div>
 
 
+
+<!-- 发布对论 -->
 <div class="dialog-wrap" id="dialog_wrap" style="display:none;">
 	<h3 class="dialog-title"><span class="fl">发布对论</span> 
 		<a class="fr close-btn" id="dialog_close" href="javascript:;" onclick="closeQuestion()">取消</a></h3>
@@ -29,7 +51,23 @@
 		<a class="blue-btn" href="javascrpt:;">发 &nbsp; &nbsp; 布</a>
 	</div>
 </div>
+
+<!-- 编辑个人资料 -->
+<div class="dialog-wrap" id="edit_user" style="display:none;">
+	<h3 class="dialog-title"><span class="fl">编辑个人资料</span> 
+		<a class="fr close-btn" id="dialog_close" href="javascript:;">取消</a></h3>
+	<div class="dilaog-content">
+		<input type="text" placeholder="我的昵称（8个字以内）">
+		<input type="text" name="" placeholder="一句话描述自己（30字以内）">
+		<a class="blue-btn" href="javascrpt:;">确 &nbsp; &nbsp; 定</a>
+	</div>
+</div>
+
 <div class="dialog-bg" id="dialog_bg" style="display:none;"></div>
 
 
-
+<div class="dialog-wx" id="wx_code" style="display:none;">
+	<div>关注公众号，即可向Ta提问</div>
+	<img src="/static/img/2code.jpg">
+	<div class="graylight">(语音问答，获得分成)</div>
+</div>

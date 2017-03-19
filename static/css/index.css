@@ -129,6 +129,7 @@ a:link, a:visited, a:active {
       height: 16px;
       background: url("/static/img/search.png") no-repeat center; }
   .header .login-box {
+    position: relative;
     width: 260px;
     height: 60px; }
     .header .login-box .logo-wx {
@@ -146,6 +147,45 @@ a:link, a:visited, a:active {
       height: 32px;
       margin-top: 15px;
       background: url("/static/img/release.png") no-repeat center; }
+    .header .login-box .wx-login {
+      position: absolute;
+      bottom: -180px;
+      left: 0;
+      width: 200px;
+      height: 120px;
+      padding: 30px;
+      background: #333;
+      color: #fff; }
+      .header .login-box .wx-login p {
+        padding-left: 145px;
+        padding-top: 40px; }
+    .header .login-box .user-box {
+      height: 60px;
+      line-height: 60px;
+      width: 130px;
+      text-align: center;
+      color: #a6a6a6; }
+      .header .login-box .user-box .u-head {
+        display: inline-block;
+        margin-top: 10px;
+        width: 37px;
+        height: 37px;
+        overflow: hidden;
+        border-radius: 50%;
+        line-height: 60px; }
+      .header .login-box .user-box img {
+        width: 100%;
+        height: 100%; }
+      .header .login-box .user-box ul {
+        height: 90px; }
+        .header .login-box .user-box ul li {
+          width: 100px;
+          height: 40px;
+          line-height: 40px;
+          text-align: center;
+          background: #262626; }
+        .header .login-box .user-box ul li:hover {
+          background: #1a1a1a; }
 
 .show-img {
   width: 100%;
@@ -238,6 +278,20 @@ a:link, a:visited, a:active {
   background: #000;
   opacity: 0.5;
   z-index: 1000; }
+
+.dialog-wx {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  width: 200px;
+  height: 200px;
+  padding: 60px;
+  background: #fff;
+  z-index: 1001;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  box-shadow: 0px 0px 10px #666;
+  line-height: 35px; }
 
 .content-index .tags {
   border-bottom: 1px solid #e6e6e6;

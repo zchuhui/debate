@@ -15,7 +15,7 @@
 		
 		<div class="content-wrap clear" id="debater">
 			<div class="content content-debater fl">
-				<h2>推荐辩手</h2>
+				<h2>排行榜</h2> 
 				<ul>
 					<li class="clear" v-cloak v-for="item in items">
 						<div class="u-head fl"><img v-bind:src="item.cover"></div>
@@ -24,7 +24,7 @@
 							<div class="u-summary">{{item.user_summary}}</div> 
 							<div>{{item.debate_count}}次辩论 &nbsp; {{item.support_count}}赞</div>
 						</div>
-						<a class="btn-blue-bd fr" href="javascript:;">向Ta提问</a>
+						<a class="btn-blue-bd fr" href="javascript:;" v-on:click="wxCode()">向Ta提问</a>
 					</li> 
 				</ul>
 				<div class="loading" v-if="loading"><img src="/static/img/loading.gif"></div>

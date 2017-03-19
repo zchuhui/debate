@@ -15,17 +15,69 @@ var winLoading = function(){
 
 /*发布问题*/
 var releaseQuestion = function(){
-	$("body").css("overflow","hidden");
+	//$("body").css("overflow","hidden");
 	$("#dialog_bg").fadeIn(100);  
-	$("#dialog_wrap").slideDown();  
+	$("#dialog_wrap").slideDown(); 
+
+	$("body").on('click',"#dialog_bg",function(){
+		//$("body").css("overflow","auto");
+		$("#dialog_bg").fadeOut(500); 
+		$("#dialog_wrap").slideUp();  
+	}); 
 } 
 
 /*关闭发布问题*/
 var closeQuestion = function(){
-	$("body").css("overflow","auto");
+	//$("body").css("overflow","auto");
 	$("#dialog_bg").fadeOut(500); 
 	$("#dialog_wrap").slideUp();  
+
 }
+
+/*关注微信公众号*/
+var openWxCode = function(){
+	$("#dialog_bg").fadeIn(100);  
+	$("#wx_code").slideDown(); 	
+
+	$("body").on('click',"#dialog_bg",function(){
+		$("#dialog_bg").fadeOut(500);  
+		$("#wx_code").slideUp(); 	
+	});
+}
+
+/*点击用户操作*/
+var userEdit = function(){
+	$("#user_edit ul").slideDown(); 
+
+	$("#user_edit ul").mouseout(function(){
+		$("#user_edit ul").slideUp();   
+	});
+}
+
+/*退出登录*/
+var login = function(){
+	$("#login_no").hide(); 
+	$("#login_yes").show(); 
+}
+
+/*退出登录*/
+var logout = function(){
+	$("#login_no").show(); 
+	$("#login_yes").hide(); 
+}
+
+/*编辑资料*/
+var editUserInfo = function(){
+	$("#dialog_bg").fadeIn(100); 
+	$("#edit_user").slideDown();  
+
+	$("body").on('click',"#dialog_bg,#dialog_close",function(){
+		$("#dialog_bg").fadeOut(500);  
+		$("#edit_user").slideUp(); 	
+	});
+}
+
+
 
 /*引用Mockjs进行数据模拟*/
 var mockData = (function(){

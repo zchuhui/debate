@@ -31,7 +31,9 @@ var getDebaterData = function(){
 				$("#head_nav li:eq("+this.nav_current+") a").addClass('current');
 			},
 			methods:{
-				
+				wxCode:function(){
+					openWxCode();
+				}
 			}
 		});
 
