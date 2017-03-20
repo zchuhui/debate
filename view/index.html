@@ -9,7 +9,7 @@
 </head>
 <body>
 	<div id="root">
-		<% include include/header.html %>
+		<% include include/header.html %> 
 		
 		<div class="show-img"><h2>发出声音，发现不同</h2><p>make a sound ,find different</p></div> 
 		
@@ -52,7 +52,7 @@
 				<h2>推荐辩手</h2>
 				<ul>
 					<li class="rec-panel" v-for="item in recommend_items"  v-cloak>
-						<a href="#">
+						<a href="#" onclick="openWxCode()">
 							<div class="u-head fl"><img v-bind:src="item.cover"></div>
 							<div class="u-info"> 
 								<div class="u-name">{{item.user_name}}</div> 
@@ -74,7 +74,7 @@
 		<script src="https://cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
 		<script src="https://cdn.bootcss.com/vue/2.2.1/vue.min.js"></script> 
 		<script src="/static/script/mock.js"></script>
-		<script src="/static/script/common.js"></script>
+		<script src="/static/script/common.js"></script> 
 		<script src="/static/script/pages/index.js"></script> 
 	</div>
 </body>

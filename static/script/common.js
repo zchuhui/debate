@@ -49,12 +49,12 @@ var openWxCode = function(){
 var userEdit = function(){
 	$("#user_edit ul").slideDown(); 
 
-	$("#user_edit ul").mouseout(function(){
-		$("#user_edit ul").slideUp();   
+	$(".content-wrap").click(function(){
+		$("#user_edit ul").slideUp(); 
 	});
 }
 
-/*退出登录*/
+/*登录*/
 var login = function(){
 	$("#login_no").hide(); 
 	$("#login_yes").show(); 
@@ -72,8 +72,8 @@ var editUserInfo = function(){
 	$("#edit_user").slideDown();  
 
 	$("body").on('click',"#dialog_bg,#dialog_close",function(){
-		$("#dialog_bg").fadeOut(500);  
-		$("#edit_user").slideUp(); 	
+		$("#dialog_bg").fadeOut(500);
+		$("#edit_user").slideUp();
 	});
 }
 
@@ -112,8 +112,8 @@ var mockData = (function(){
 	}; 
 
 	//首页标签切换请求
-	var index_tag_url = function(){
-		var url = "www.mock.com/index_tag";
+	var index_tag_url = function(id){
+		var url = "www.mock.com/index_tag"+id;
 		Mock.mock(url,{
 			'id|1-10000':1,
 			'result':0,

@@ -1,7 +1,13 @@
 
 $(function(){
+
 	getIndexData();
 
+	$("body").on("click","#tags li",function(){
+		$("#tags li").removeClass("current");
+		$(this).addClass("current");
+	});
+	
 });
 
 /**
@@ -57,7 +63,7 @@ var getIndexData = function(){
 				}, 
 
 				//标签切换
-				toggleTags:function(j){   
+				toggleTags:function(j){
 					getIndexDataInTag.then(function(d){
 						subjectVue.items = d.items;   
 						
@@ -82,6 +88,7 @@ var getIndexData = function(){
 		　　　　subjectVue.scrollBottom();
 		　　}
 		});
+
 
 	});
 }; 
