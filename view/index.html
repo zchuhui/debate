@@ -15,26 +15,26 @@
 		
 		<div class="content-wrap clear" >
 			<div class="content content-index fl">
-				 <ol class="tags clear" id="tags" v-cloak>
+				 <!-- <ol class="tags clear" id="tags" v-cloak>
 				 	<li class="current">全部</li> 
 				 	<li v-for="tag in tags" v-on:click="toggleTags()">{{tag}}</li> 
-				 </ol>  
+				 </ol>  -->  
 				 <ul class="topic-list" >
-				 	<li class="topic-panel" v-for="item in items"  v-if="item.id <= show_count" v-cloak>
+				 	<li class="topic-panel" v-for="item in items"  v-cloak><!-- v-if="item.id <= show_count" -->
 				 		<a href="/detail">
 					 		<h3> 
-					 			{{item.title}}
+					 			{{ item.question.descDetail }}
 					 			<div class="fr number">
-					 				<span class="blue">{{item.support_count}}</span>&nbsp;/&nbsp;<span class="red">{{item.opposition_count}}</span>
+					 				<span class="blue">{{item.obverseSupportNum}}</span>&nbsp;/&nbsp;<span class="red">{{item.reverseSupportNum}}</span>
 					 			</div> 
 					 		</h3>
 					 		<div class="topic-content clear">
-					 			<div class="head fl"><img v-bind:src="item.cover"></div>
+					 			<div class="head fl"><img v-bind:src="item.obverser.headImgUrl"></div>
 					 			<div class="info">
 					 				<div class="user-info clear">
-						 				<span class="user-name fl" >{{item.user_name}}</span>
-						 				<span class="user-summary fl">{{item.user_summay}}</span>
-						 				<span class="fr count blue">{{item.review_count}}</span>
+						 				<span class="user-name fl" >{{item.obverser.nickname}}</span>
+						 				<span class="user-summary fl">{{item.obverser.introduction}}</span>
+						 				<span class="fr count blue">{{item.obverser.dianzanNum}}</span>
 						 			</div>
 						 			<div class="summary">
 						 				{{item.summay}} 
@@ -50,7 +50,7 @@
 			
 			<div class="recommend fr"> 
 				<h2>推荐辩手</h2>
-				<ul>
+				<!-- <ul>
 					<li class="rec-panel" v-for="item in recommend_items"  v-cloak>
 						<a href="#" onclick="openWxCode()">
 							<div class="u-head fl"><img v-bind:src="item.cover"></div>
@@ -60,7 +60,7 @@
 							</div>
 						</a>
 					</li>
-				</ul>
+				</ul> -->
 				<div class="contact-us">
 					<img class="fl" src="/static/img/2code.jpg">
 					<div class="label">联系我们:</div>
@@ -75,6 +75,7 @@
 		<script src="https://cdn.bootcss.com/vue/2.2.1/vue.min.js"></script> 
 		<script src="/static/script/mock.js"></script>
 		<script src="/static/script/common.js"></script> 
+
 		<script src="/static/script/pages/index.js"></script> 
 	</div>
 </body>

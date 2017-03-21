@@ -18,23 +18,22 @@ var getIndexData = function(){
 
 	var index_url = mockData.index_url();
 
-	$.get(index_url,function(d){
-
-		d = JSON.parse(d);
-		var dataItems = d.items;
+	$.get("/static/api/discuss/getHotDiscussDetails",function(d){
+		d = JSON.parse(d);  
+		console.log(d.data);  
 
 		var subjectVue = new Vue({
 			el:'#root',
 			data:{
-				tags:d.tags,
-				items:dataItems,
-				recommend_items:d.recommend_items,
-				nav_current:d.nav_current,
+				// tags:d.tags, 
+				items:d.data,
+				// recommend_items:d.recommend_items,
+				// nav_current:d.nav_current,
 				loading:1,
 				show_count:10,
-				test:0,
+				test:0, 
 			},
-			computed:{
+			computed:{ 
 				tg:function(){
 					return this.items;    
 				}
@@ -45,7 +44,7 @@ var getIndexData = function(){
 				//隐藏滚动条
 				this.loading = 0;
 				//选中导航栏当前的子项（约辩）
-				$("#head_nav li:eq("+this.nav_current+") a").addClass('current');
+				//$("#head_nav li:eq("+this.nav_current+") a").addClass('current');
 			},
 			methods:{
 				//滚动条拉到底部时追加载入数据
@@ -88,9 +87,20 @@ var getIndexData = function(){
 		　　　　subjectVue.scrollBottom();
 		　　}
 		});
-
-
 	});
+
+	// $.ajax({
+	// 	url: 'http://www.bianfou.cc/bianfou/api/discuss/getHotDiscussDetails',
+	// 	type: 'get',
+	// 	dataType: 'JSONP',
+	// 	jsonp:"callback",
+	// 	success:function(data){
+	// 		console.log("success");
+	// 	},
+	// 	error:function(){
+	// 		console.log("error")
+	// 	}
+	// })
 }; 
 
 
