@@ -1,82 +1,94 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-	<title><%=title%></title>
-
-	<link rel="stylesheet" type="text/css" href="/static/css/index.css">
+    <title>
+        <%=title%>
+    </title>
+    <link rel="stylesheet" type="text/css" href="/static/css/index.css">
 </head>
+
 <body>
-	<div id="root">
-		<% include include/header.html %> 
-		
-		<div class="show-img"><h2>发出声音，发现不同</h2><p>make a sound ,find different</p></div> 
-		
-		<div class="content-wrap clear" >
-			<div class="content content-index fl">
-				 <!-- <ol class="tags clear" id="tags" v-cloak>
-				 	<li class="current">全部</li> 
-				 	<li v-for="tag in tags" v-on:click="toggleTags()">{{tag}}</li> 
-				 </ol>  -->  
-				 <ul class="topic-list" >
-				 	<li class="topic-panel" v-for="item in items"  v-cloak><!-- v-if="item.id <= show_count" -->
-				 		<a href="/detail">
-					 		<h3> 
-					 			{{ item.question.descDetail }}
-					 			<div class="fr number">
-					 				<span class="blue">{{item.obverseSupportNum}}</span>&nbsp;/&nbsp;<span class="red">{{item.reverseSupportNum}}</span>
-					 			</div> 
-					 		</h3>
-					 		<div class="topic-content clear">
-					 			<div class="head fl"><img v-bind:src="item.obverser.headImgUrl"></div>
-					 			<div class="info">
-					 				<div class="user-info clear">
-						 				<span class="user-name fl" >{{item.obverser.nickname}}</span>
-						 				<span class="user-summary fl">{{item.obverser.introduction}}</span>
-						 				<span class="fr count blue">{{item.obverser.dianzanNum}}</span>
-						 			</div>
-						 			<div class="summary">
-						 				{{item.summay}} 
-						 			</div>
-					 			</div>
-					 		</div>
-					 	</a>
-				 	</li> 
-				 </ul>
-				 
-				 <div class="loading" v-if="loading"><img src="/static/img/loading.gif"></div>
-			</div>
-			
-			<div class="recommend fr"> 
-				<h2>推荐辩手</h2>
-				<!-- <ul>
-					<li class="rec-panel" v-for="item in recommend_items"  v-cloak>
-						<a href="#" onclick="openWxCode()">
-							<div class="u-head fl"><img v-bind:src="item.cover"></div>
-							<div class="u-info"> 
-								<div class="u-name">{{item.user_name}}</div> 
-								<div class="u-summary">{{item.user_summary}}</div> 
-							</div>
-						</a>
-					</li>
-				</ul> -->
-				<div class="contact-us">
-					<img class="fl" src="/static/img/2code.jpg">
-					<div class="label">联系我们:</div>
-					<div class="info">辩否官方QQ群：216560849 <br> 或关注辩否微信公众号</div>
-				</div>
-			</div>
-		</div>
+    <div id="root">
+        <% include include/header.html %>
+            <div class="show-img">
+                <h2>发出声音，发现不同</h2>
+                <p>make a sound ,find different</p>
+            </div>
+            <div class="content-wrap clear">
+                <div class="content content-index fl">
 
-		<% include include/footer.html %>
-		
-		<script src="https://cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
-		<script src="https://cdn.bootcss.com/vue/2.2.1/vue.min.js"></script> 
-		<script src="/static/script/mock.js"></script>
-		<script src="/static/script/common.js"></script> 
+                    <!-- 标签 -->
+                    <ol class="tags clear" id="tags" v-cloak>
+                        <li class="current">热门</li>
+                        <li>最新</li>
+                        <li v-for="tag in tags">{{ tag.name }}</li>
+                    </ol>
 
-		<script src="/static/script/pages/index.js"></script> 
-	</div>
+                    <!-- 辩题列表 -->
+                    <ul class="topic-list">
+                        <li class="topic-panel" v-for="(item,index) in items" v-if="index <= show_count" v-cloak>
+
+                            <a href="/detail">
+                                <div class="clear">
+                                    <h3 class="fl"> {{ item.question.descDetail }}</h3>
+                                    <div class="fr number">
+                                        <span class="blue">{{item.obverseSupportNum}}</span> / <span class="red">{{item.reverseSupportNum}}</span>
+                                    </div>
+                                </div>
+                                <div class="topic-content clear">
+                                    <div class="head fl"><img v-bind:src="item.obverser.headImgUrl"></div>
+                                    <div class="info">
+                                        <div class="user-info clear">
+                                            <span class="user-name fl">{{item.obverser.nickname}}</span>
+                                            <span class="user-summary fl">{{item.obverser.introduction}}</span>
+                                            <span class="fr count blue">{{item.obverser.dianzanNum}}</span>
+                                        </div>
+                                        <div class="summary">
+                                            {{item.summay}}
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="loading" v-if="loading"><img src="/static/img/loading.gif"></div>
+                </div>
+
+                <!-- 推荐辩手 -->
+                <div class="recommend fr" id="recommend">
+                    <h2>推荐辩手</h2>
+                    <ul>
+                        <li class="rec-panel" v-for="(item,index) in members" v-if="index < 10" v-cloak>
+                            <a href="javascript:;" onclick="openWxCode()">
+                                <div class="u-head fl"><img v-bind:src="item.headImgUrl"></div>
+                                <div class="u-info">
+                                    <div class="u-name">{{item.nickname}}</div>
+                                    <div class="u-summary" v-if="item.introduction =='' || item.introduction ==null">此人很懒，什么也没留下</div>
+                                    <div class="u-summary" v-else>{{item.introduction}}&nbsp;</div>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="contact-us">
+                        <img class="fl" src="/static/img/2code.jpg">
+                        <div class="label">联系我们:</div>
+                        <div class="info">辩否官方QQ群：216560849
+                            <br> 或关注辩否微信公众号</div>
+                    </div>
+                </div>
+
+            </div>
+            <% include include/footer.html %>
+                <script src="https://cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+                <script src="https://cdn.bootcss.com/vue/2.2.1/vue.min.js"></script>
+                <script src="https://cdn.jsdelivr.net/vue.resource/1.2.1/vue-resource.min.js"></script>
+                <script src="/static/script/mock.js"></script>
+                <script src="/static/script/common.js"></script>
+                <script src="/static/script/pages/index.js"></script>
+    </div>
 </body>
-</html> 
+
+</html>

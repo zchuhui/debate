@@ -29,15 +29,17 @@
 		padding:20px 0; 
 
 		h3{
+			width:560px;
 			font-size: 16px;
 			font-weight:bold; 
 			line-height: 30px;
-
-			.number{
-				font-size: 13px;
-				font-weight: normal;
-				color:$colorGray; 
-			}
+		}
+		.number{
+			width:90px;
+			color:$colorGray; 
+			overflow: hidden;
+			line-height: 30px; 
+			text-align: right;
 		}
 
 		.topic-content{

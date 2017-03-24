@@ -314,13 +314,16 @@ a:link, a:visited, a:active {
   border-bottom: 1px solid #e6e6e6;
   padding: 20px 0; }
   .content-index .topic-panel h3 {
+    width: 560px;
     font-size: 16px;
     font-weight: bold;
     line-height: 30px; }
-    .content-index .topic-panel h3 .number {
-      font-size: 13px;
-      font-weight: normal;
-      color: #999; }
+  .content-index .topic-panel .number {
+    width: 90px;
+    color: #999;
+    overflow: hidden;
+    line-height: 30px;
+    text-align: right; }
   .content-index .topic-panel .topic-content {
     margin-top: 10px; }
     .content-index .topic-panel .topic-content .head {
