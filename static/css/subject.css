@@ -73,6 +73,9 @@ a:link, a:visited, a:active {
 .mt10 {
   margin-top: 10px; }
 
+.mt-10 {
+  margin-top: -10px; }
+
 .header {
   width: 100%;
   height: 60px;

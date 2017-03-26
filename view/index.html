@@ -27,8 +27,8 @@
                         <li v-for="tag in tags">{{ tag.name }}</li>
                     </ol>
 
-                    <!-- 辩题列表 -->
-                    <ul class="topic-list">
+                    <!-- 最热对论  -->
+                    <ul class="topic-list" id="hot">
                         <li class="topic-panel" v-for="(item,index) in items" v-if="index <= show_count" v-cloak>
 
                             <a href="/detail">
@@ -54,6 +54,33 @@
                             </a>
                         </li>
                     </ul>
+
+                    <!-- 最新对论 -->
+                    <ul class="topic-list" id="new" style="display:none">
+                        <li class="topic-panel topic-panel-new" v-for="(item,index) in items" v-if="index <= show_count" v-cloak>
+
+                            <a href="/detail">
+                                <div class="topic-content clear">
+                                    <div class="head fl"><img v-bind:src="item.obverser.headImgUrl"></div>
+                                    <div class="info">
+                                        <div class="user-info clear">
+                                            <span class="fl user-name ">程浩</span>
+                                            <span class="fl gray">发布对论&nbsp;</span>
+                                            <!-- <span class="fl blue">正方</span> -->
+                                            <!-- <span class="fl red">反方</span> -->
+                                            <span class="fr gray">{{item.beginTime}}</span>
+                                        </div>
+                                        <h3 class="fl mt-10">{{item.question.descDetail}}</h3>
+                                        <div class="fl summary mt10" >
+                                            正：{{item.question.obversePoint}} &nbsp;&nbsp; 反：{{item.question.reversePoint}}
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        
+                    </ul>
+
                     <div class="loading" v-if="loading"><img src="/static/img/loading.gif"></div>
                 </div>
 

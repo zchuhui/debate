@@ -11,37 +11,43 @@ $(function () {
 		]
 	});
 
+
     getDetailData();
+    getIndexData();
 
 });
 
 
 var getDetailData = function(){
-	var url = mockData.detail_url();
+	// var url = mockData.detail_url();
+	var url = '/static/api/discuss/detail_41cf63402f1a4823b204ac5943fffdf1';
 
-	$.get(url,function(d){
-		var d = JSON.parse(d);
+	$.get(url,function(d){ 
+		var d = JSON.parse(d).data;
 		console.log(d); 
 		var detaileVue  = new Vue({
 			el:'#detail',
 			data:{
-				id:d.id,
-				title:d.title,
-				summary:d.summary,
-				support_title:d.support_title,
-				support_count:d.support_count,
-				oppose_title:d.oppose_title,
-				oppose_count:d.oppose_count,
-				release_time:d.release_time,
-				review_count:d.review_count,
-				reviews:d.reviews,
-				you_support:d.you_support,
+				detail:d.detail,
+				msgs:d.msgs,
+				// id:d.id,
+				// title:d.detail.question.descDetail,
+				// summary:d.detail.question.descDetailMore,
+				// support_title:d.detail.question.obversePoint,
+				// support_count:d.detail.obverseSupportNum,
+				// oppose_title:d.detail.question.reversePoint,
+				// oppose_count:d.detail.reverseSupportNum,
+				// release_time:d.detail.beginTime,
+				// review_count:d.detail.freeViewNumn,
+				// msgs:d.msgs,
+				// you_support:d.supportStatus,
+
 				hots:d.hots,
 				loading:true,
 			},
 			methods:{
 				isRevert:function(id){
-					this.reviews[id].u_edit_f = !this.reviews[id].u_edit_f;
+					this.msgs[id].debateMsg.question.isEnable = !this.msgs[id].debateMsg.question.isEnable;
 				},
 				isRevertItem:function(id,item_id){
 					this.reviews[id].talks[item_id].uu_edit_f = !this.reviews[id].talks[item_id].uu_edit_f;
@@ -50,7 +56,7 @@ var getDetailData = function(){
 
 				},
 				cancel:function(id){
-					this.reviews[id].u_edit_f = false;
+					this.msgs[id].debateMsg.question.isEnable = !this.msgs[id].debateMsg.question.isEnable
 				},
 				cancelItem:function(id,item_id){
 					this.reviews[id].talks[item_id].uu_edit_f = !this.reviews[id].talks[item_id].uu_edit_f;
@@ -64,6 +70,27 @@ var getDetailData = function(){
 	});
 
 }
+
+/**
+ * 获取首页数据
+ */
+var getIndexData = function(){
+
+	//请求数据
+	$.get("/static/api/discuss/getLatestDiscussDetails",function(d){
+
+		d = JSON.parse(d);
+
+		var hotVue = new Vue({
+			el:'#hot',
+			data:{
+				hots:d.data,
+			}
+		});
+		
+	});
+
+}; 
 
 
 

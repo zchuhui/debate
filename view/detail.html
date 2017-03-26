@@ -9,76 +9,78 @@
 	<link rel="stylesheet" type="text/css" href="/static/script/plugin/wangEditor.css">
 </head>
 <body>
-	<div id="root"> 
+	<div> 
 		<% include include/header.html %>
 		
-		<div class="content-wrap clear" id="detail"  style="min-height: 900px;">
-			<div class="content content-detail fl" >
+		<div class="content-wrap clear"  style="min-height: 900px;">
+			<!-- 对论详情 -->
+			<div class="content content-detail fl" id="detail" >
 
 				<div class="topic-title" v-cloak>
-				 	<h2>{{ title }}</h2>
-				 	<div class="t-summary">{{ summary }}</div>
+				 	<h2>{{ detail.question.descDetail }}</h2>
+				 	<div class="t-summary">{{ detail.question.descDetailMore }}</div>
 				 	<div class="viewpoint clear">
 				 		<div class="fl w-p-20 tl"><a class="btn-blue" href="javascript:;">支持正方</a>
 				 		<p class="gray">&nbsp;&nbsp;已支持</p></div>
 				 		<div class="fr w-p-20 tr"><a class="btn-red" href="javascript:;">支持反方</a></div>
 				 		<div class="progress-box w-p-60 fl">
 				 			<div class="clear">
-				 				<span class="fl">正：{{ support_title }}</span>
-				 				<span class="fr">反方：{{ oppose_title }}</span>
+				 				<span class="fl">正：{{ detail.question.obversePoint }}</span>
+				 				<span class="fr">反方：{{ detail.question.reversePoint }}</span>
 				 			</div>
 				 			<div class="progress clear"> 
 				 				<div class="pro-right fl"></div>
 				 				<div class="pro-left fl"></div>
 				 			</div>
 				 			<div class="clear f16">
-				 				<span class="fl blue">{{ support_count }} 人</span>
-				 				<span class="fr red">{{ oppose_count }} 人</span>
+				 				<span class="fl blue">{{ detail.obverseSupportNum }} 人</span>
+				 				<span class="fr red">{{ detail.reverseSupportNum }} 人</span>
 				 			</div>
 				 		</div>
 				 	</div>
 					<div class="graylight mt20">
-						发布于<span>{{ release_time }}</span>&nbsp;
-						共 <span class="gray">{{ review_count }} </span> 个论述 &nbsp;
+						发布于<span>{{ detail.beginTime }}</span>&nbsp;
+						共 <span class="gray">{{ detail.freeViewNumn }} </span> 个论述 &nbsp;
 						分享于: <em class="share-wx"></em>  
 					</div>
 				</div>
 
 				<!-- 评论区 -->
-				<div class="topic-debate" v-for="item in reviews" v-cloak>
+				<div class="topic-debate" v-for="(item,index) in msgs" v-cloak>
 
-				 	<!-- 支持正方 -->
-				 	<div class="support fl" v-if="item.u_support === true">
-				 		<div class="head"><img v-bind:src="item.u_cover"></div>
+				 	<!-- 如果ta支持正方 -->
+				 	<div class="support fl" v-if="item.isSponsor == '1'">
+				 		<div class="head"><img v-bind:src="item.debateMsg.send.headImgUrl"></div>
 				 		<div class="support-txt">
-				 			<p>{{ item.u_support_count }}</p>
+				 			<p>{{ item.debateMsg.send.dianzanNum }}</p> 
 				 			<em class="suport-icon"></em>
 				 		</div>
 				 	</div>
 
-				 	<!-- 支持反方 -->
+				 	<!-- 如果ta支持反方 -->
 				 	<div class="support support-r fr" v-else> 
-				 		<div class="head"><img v-bind:src="item.u_cover"></div>
+				 		<div class="head"><img v-bind:src="item.debateMsg.send.headImgUrl"></div>
 				 		<div class="support-txt">
-				 			<p>{{ item.u_support_count }}</p>
+				 			<p>{{ item.debateMsg.send.dianzanNum }}</p>
 				 			<em class="suport-icon"></em>
 				 		</div>
 				 	</div> 
 
 				 	<div class="debate-info">
-				 		<div class="user-info"><b>{{item.u_name}}</b> <span class="graylight">支持正方，先救老婆</span></div>
+				 		<div class="user-info"><b>{{item.debateMsg.send.nickname}}</b> <span class="graylight">支持正方，先救老婆</span></div>
 						<div class="debate-summary"> 
-							{{item.u_summary}}
+							{{item.debateMsg.content}}
 						</div>
 						<div class="graylight mt10"> 
-							<span>{{item.u_time}}</span> 
-							<a class="fr graylight" href="javascript:;" v-on:click="isRevert(item.u_id)">回复</a> 
-							<div class="flex-text-wrap revert-input" v-if="item.u_edit_f">
+							<span>{{item.debateMsg.send.createDate}}</span> 
+							<a class="fr graylight" href="javascript:;" v-on:click="isRevert(index)">回复</a> 
+
+							<div class="flex-text-wrap revert-input" v-if="item.debateMsg.question.isEnable=='0'">
 								<pre><span></span></pre> 
-								<textarea class=" revert_input" placeholder="回复 会飞的鱼儿" v-model="item.u_edit_content">{{item.u_edit_content}}</textarea> 
+								<textarea class=" revert_input" v-bind:placeholder="item.debateMsg.send.nickname" v-model="item.u_edit_content">{{item.u_edit_content}}</textarea> 
 								<div class="clear pd10">
 									<a class="btn-black fr" href="javascript:;" v-on:click="revert()">回  复</a>
-									<a class="btn-cancel fr" class="fr" href="javascript:;" v-on:click="cancel(item.u_id)" >取消</a>
+									<a class="btn-cancel fr" class="fr" href="javascript:;" v-on:click="cancel(index)" >取消</a>
 								</div>
 							</div>
 						</div>
@@ -104,6 +106,7 @@
 								</div>
 							</div>
 						</li>
+
 						<!-- <li class="clear revert-item">
 							<div class="head fl"><img src="/static/img/test/head2.jpg"></div>
 							<div class="revert-info">
@@ -166,9 +169,6 @@
 				</div> -->
 
 				<div class="topic-debate" v-cloak>
-				  	<div>
-				  		
-				  	</div>
 				  	<textarea id='textarea1' style='height:200px; width:100%;'>
 						<p>请输入你的评论</p>
 					</textarea> 
@@ -177,18 +177,19 @@
 				<div class="loading" v-if="loading"><img src="/static/img/loading.gif"></div>
 			</div>
 			
-
-			<div class="recommend fr"  v-cloak> 
+			<!-- 热门对论 -->
+			<div class="recommend fr" id="hot" v-cloak> 
 				<h2>热门对论</h2>
 				<ul>
-					<li class="rec-panel" v-for='h in hots' >
+					<li class="rec-panel" v-for='(h,index) in hots' v-if="index < 10">
 						<a href="/detail">
-							<p><b>{{h.title}}</b></p>
-							<span class="graylight">{{h.count}} 人参与</span>
+							<p><b>{{h.question.descDetail}}</b></p>
+							<span class="graylight">{{h.discussNum}} 人参与</span>
 						</a>
 					</li>
 				</ul>
-				<div class="contact-us">
+
+				<div class="contact-us mt20">
 					<img class="fl" src="/static/img/2code.jpg">
 					<div class="label">联系我们:</div>
 					<div class="info">辩否官方QQ群：216560849 <br> 或关注辩否微信公众号</div>

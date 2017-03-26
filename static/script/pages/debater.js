@@ -10,19 +10,17 @@ $(function(){
  */
 var getDebaterData = function(){
 
-	var url = mockData.debater_url();
+	$.get('/static/api/member/getMembers',function(d){
 
-	$.get(url,function(d){
-
-		d = JSON.parse(d);
+		d = JSON.parse(d).data;
 
 		var subjectVue = new Vue({
 			el:'#debater',
 			data:{
-				items:d.items,
-				recommend_items:d.recommend_items,
+				items:d,
+				recommend_items:d,
 				loading:1,
-				nav_current:d.nav_current,
+				nav_current:2,
 			},
 			created:function(){ //数据渲染后的操作
 				//隐藏滚动条
